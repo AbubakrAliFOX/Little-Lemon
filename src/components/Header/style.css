@@ -4,11 +4,11 @@ header {
     padding: 35px 290px;
 }
 
-a {
+li > a {
     transition: 0.19s color ease-in-out;
 }
 
-a:hover {
+li > a:hover {
     color: var(--color2);
 }
 
