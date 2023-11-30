@@ -1,5 +1,8 @@
+import './style.css'
+
 export default function Header() {
     return <header>
+        <img src="/Logo.svg" alt="Logo" />
       <nav>
         <ul>
             <li><a>Home</a></li>
