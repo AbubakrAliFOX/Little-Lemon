@@ -3,7 +3,7 @@ import Button from "../../Button";
 export default function Hero() {
   return (
     <>
-      <article className="hero">
+      <article className="hero page-padding">
         <section className="content">
           <h1 className="title">Little Lemon</h1>
           <h2 className="subtitle">Chicago</h2>

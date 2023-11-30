@@ -1,3 +1,7 @@
+.page-padding {
+  padding: var(--pageSpacing) var(--pagePadding);
+}
+
 .title {
   color: var(--color2);
   font-family: "Markazi Text", serif;
@@ -29,7 +33,6 @@
 
 .hero {
   display: flex;
-  padding: 35px 290px;
   background-color: var(--color1);
 }
 
@@ -52,10 +55,6 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-}
-
-.specials-section {
-  padding: 35px 290px;
 }
 
 .specials-title {
@@ -127,4 +126,58 @@
 
 .order-link span {
   margin-right: 8px;
+}
+
+.testimonials-section {
+  background-color: var(--color1);
+}
+
+.testimonials-title {
+  color: #fff;
+  text-align: center;
+  font-size: 40px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+
+.branch-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+}
+
+.branch-section h1,
+.branch-section h2,
+.branch-section p {
+  color: black;
+}
+
+
+
+.branch-img {
+  position: relative;
+  border-radius: 8px;
+  height: 45%;
+  width: 90%;
+}
+
+.branch-img:nth-of-type(1) {
+  z-index: 100;
+  float: right;
+  margin-bottom: -40px;
+  
+}
+
+.branch-img:nth-of-type(2) {
+  z-index: 10; 
+}
+
+footer {
+  background-color: var(--color1);
+}
+
+footer img {
+  width: 162px;
+  height: 280px;
 }

@@ -3,7 +3,7 @@ import Card from "../Card";
 
 export default function Specials() {
   return (
-    <article className="specials-section">
+    <article className="page-padding">
       <section className="specials-main-display">
         <h3 className="specials-title">Our specials this week!</h3>
         <Button content="Order Online" />

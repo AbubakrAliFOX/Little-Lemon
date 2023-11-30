@@ -1,7 +1,7 @@
 header {
     display: flex;
     align-items: center;
-    padding: 35px 290px;
+    padding: var(--pageSpacing) var(--pagePadding);
 }
 
 li > a {
