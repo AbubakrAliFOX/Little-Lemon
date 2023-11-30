@@ -6,6 +6,8 @@ header {
 
 li > a {
     transition: 0.19s color ease-in-out;
+    text-decoration: none;
+    color: black;
 }
 
 li > a:hover {
@@ -32,6 +34,6 @@ li {
     margin-right: 30px;
 }
 
-li, nav {
+header li, header nav {
     display: inline-block;
 }
