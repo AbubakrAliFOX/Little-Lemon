@@ -1,9 +1,14 @@
 :root {
-  /* font-family: 'Karla', sans-serif; */
-  font-family: "Markazi Text", serif;
+  font-family: 'Karla', sans-serif;
+  /* font-family: "Markazi Text", serif; */
   line-height: 1.5;
   font-weight: 400;
   --color1: #495E57;
   --color2: #f4ce14;
   --color3: #EDEFEE;
+}
+
+body {
+  margin: 0;
+  padding: 0;
 }
