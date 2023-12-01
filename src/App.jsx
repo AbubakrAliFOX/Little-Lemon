@@ -6,6 +6,7 @@ import Header from './components/Header';
 import Main from './components/Main';
 import Footer from './components/Footer';
 import ErrorPage from './components/ErrorPage';
+import BookingPage from './components/BookingPage';
 
 function App() {
 
@@ -15,6 +16,7 @@ function App() {
      <Routes>
       <Route path='/' element={<Main />} />
       <Route path='/about' element={<div>Dssdad</div>} />
+      <Route path='/reservations' element={<BookingPage />} />
       <Route path='*' element={<ErrorPage />} />
      </Routes>
      <Footer />
