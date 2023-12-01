@@ -180,11 +180,11 @@ footer {
 }
 
 footer section {
-  width: 25%;
+  max-width: 25%;
 }
 
 footer img {
-  width: 162px;
+  width: auto;
   height: 280px;
 }
 
