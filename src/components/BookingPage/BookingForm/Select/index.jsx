@@ -11,9 +11,9 @@ export default function Select({
   setAvailableTimes,
 }) {
   let options;
-  const [name, setName] = useState(type);
+  const [displayName, setDisplayName] = useState(type);
 
-  switch (name) {
+  switch (type) {
     case "Date":
       options = getDate().days;
       break;
@@ -32,49 +32,51 @@ export default function Select({
       break;
   }
 
-  const [buttonClicked, setButtonClicked] = useState(false);
-  const [optionButtonClicked, setOptionButtonClicked] = useState(false);
+  const [open, setOpen] = useState(false);
+  const [isOptionSelected, setIsOptionSelected] = useState(false);
 
   const handleClick = () => {
-    setButtonClicked((prevClick) => !prevClick);
+    setOpen((prevValue) => !prevValue);
   };
 
   const handleOptionClick = (e) => {
     if (e.target.className === "day") {
       setFormData((prevData) => ({
         ...prevData,
-        Date: `${getDate().year}-${getDate().month}-${getDate().day}`,
+        Date: `${getDate().year}-${getDate().month}-${e.target.id}`,
       }));
       setAvailableTimes((previousTimes) => {
         setFormData((previousFormData) => ({ ...previousFormData, Time: "" }));
         return generateTimes(e.target.id);
       });
     }
-    ///////////////////////////////////////////////
-    setButtonClicked((prevClick) => !prevClick);
-    setOptionButtonClicked((prevClick) => !prevClick);
-    setName((prevName) => e.target.id);
     if (e.target.className != "day") {
-      setFormData((prevData) => ({
-        ...prevData,
-        [type]: e.target.id,
-      }));
+        setFormData((prevData) => ({
+            ...prevData,
+            [type]: e.target.id,
+        }));
     }
+
+    ///////////////////////////////////////////////
+    setIsOptionSelected(prevValue => true);
+    setOpen(prevValue => false);
+    // setName((prevName) => e.target.id);
   };
 
   console.log(formData);
+  console.log(open);
   return (
     <div className="select-field">
       <div
         className={`select-button ${
-          optionButtonClicked && "select-button-clicked"
+          isOptionSelected && "select-button-clicked"
         }`}
         onClick={handleClick}
       >
         <svg
           width="34.5px"
           height="37.5px"
-          fill={optionButtonClicked ? "#edefee" : "#495E57"}
+          fill={isOptionSelected ? "#edefee" : "#495E57"}
           version="1.1"
           id="Capa_1"
           xmlns="http://www.w3.org/2000/svg"
@@ -102,15 +104,15 @@ export default function Select({
         </svg>
         <span
           className={`select-main-text ${
-            optionButtonClicked && `change-text-color`
+            isOptionSelected && `change-text-color`
           }`}
         >
-          {name}
+          {displayName}
         </span>
         <svg
           width="33"
           height="21"
-          className={buttonClicked && `rotate-svg`}
+          className={open && `rotate-svg`}
           viewBox="0 0 33 21"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
@@ -125,10 +127,10 @@ export default function Select({
       </div>
       <div
         className={`select-options ${
-          buttonClicked && `display-select-options`
+          open? `display-select-options` : `hide-select-options`
         }`}
       >
-        {name === "Date" && (
+        {type === "Date" && (
           <div className="date-option" value="0">
             <div className="month-container">{getDate().monthName}</div>
             <div className="day-container">
@@ -140,7 +142,7 @@ export default function Select({
             </div>
           </div>
         )}
-        {name === "Time" && options.length === 0 && (
+        {type === "Time" && options.length === 0 && (
           <div onClick={handleOptionClick} className="option" value="0">
             Pick a date first
           </div>

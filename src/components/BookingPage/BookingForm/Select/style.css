@@ -64,6 +64,11 @@
 
 .display-select-options {
   display: block;
+  z-index: 10000;
+}
+
+.hide-select-options {
+    display: none;
 }
 
 .option {
