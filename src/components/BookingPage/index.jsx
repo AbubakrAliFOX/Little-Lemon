@@ -1,6 +1,5 @@
 import { useState } from "react";
 import BookingForm from "./BookingForm";
-import "./style.css";
 
 export default function BookingPage() {
   
