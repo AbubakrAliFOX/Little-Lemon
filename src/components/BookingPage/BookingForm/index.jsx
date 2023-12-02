@@ -1,11 +1,14 @@
 
 
 
-export default function BookingForm ({formData, setFormData, availableTimes}) {
+export default function BookingForm ({formData, setFormData, availableTimes, setAvailableTimes}) {
     const handleChange = (e) => {
         setFormData(previousData => {
             return {...previousData, [e.target.name]: e.target.value}
-        })
+        });
+        if (e.target.name === 'date') {
+            setAvailableTimes(previousTimes => ['17:00', '11:00', '17:00', '17:00', '17:00', '17:00']);
+        }
     }
     console.log(formData);
 
