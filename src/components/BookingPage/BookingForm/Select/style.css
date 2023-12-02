@@ -18,27 +18,35 @@
 }
 
 .select-button:hover {
-    border: 2px var(--color1) solid;
+  box-shadow: 0px 6px 4px 0px rgba(0, 0, 0, 0.25);
 }
 
 .select-button-clicked {
+  background-color: var(--color1);
 }
 
 .rotate-svg {
-    transform: rotate(180deg);
+  transform: rotate(180deg);
 }
 
 .select-main-text {
-    color: var(--color1);
-    font-size: 28px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: normal;
+  color: var(--color1);
+  font-size: 28px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
 }
 
+.change-text-color {
+  color: var(--color3);
+}
 
 .select-button svg {
   margin: 0 21px;
+}
+
+.fill-svg {
+  fill: var(--color3);
 }
 
 .select-options {
@@ -46,14 +54,17 @@
   margin-top: 8px;
   text-align: center;
   max-width: 320px;
-  cursor: pointer;
+  max-height: 300px;
+  overflow-y: auto;
+  overflow-x: hidden;
   position: absolute;
   display: none;
+  z-index: 100;
 }
 
-.clicked-select-options {
-    display: block;
-} 
+.display-select-options {
+  display: block;
+}
 
 .option {
   width: 320px;
@@ -64,10 +75,49 @@
   line-height: normal;
   border-bottom: darkblue dashed 1px;
   padding: 18px 0;
-  transition: background 0.19s ease-in-out;
+  transition: all 0.19s ease-in-out;
+  cursor: pointer;
+
 }
 
 .option:hover {
   background-color: var(--color1);
   color: var(--color3);
+}
+
+.date-option {
+  display: flex;
+  justify-content: space-evenly;
+  overflow: scroll;
+  /* //////////// */
+  width: 320px;
+  color: var(--color1);
+  font-size: 28px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  border-bottom: darkblue dashed 1px;
+  padding: 18px 0;
+  transition: all 0.19s ease-in-out;
+}
+
+.month-container, .day-container {
+    max-width: 50%;
+    text-align: center;
+}
+
+.month-container {
+    margin-left: 10px;
+}
+
+.day {
+    width: 100%;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.day:hover {
+    background-color: var(--color1);
+    color: var(--color3);
 }

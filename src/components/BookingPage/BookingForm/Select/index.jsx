@@ -1,24 +1,30 @@
 import { useState } from "react";
 import "./style.css";
 
-export default function Select() {
-  const [clicked, setClicked] = useState(false);
+export default function Select({type, options}) {
+  const [buttonClicked, setButtonClicked] = useState(false);
+  const [optionButtonClicked, setOptionButtonClicked] = useState(false);
+  const [name, setName] = useState(type);
 
   const handleClick = () => {
-    setClicked(setClicked => !setClicked);
+    setButtonClicked(prevClick => !prevClick);
   }
   
-  const customClickingStyles = {
-
+  const handleOptionClick = (e) => {
+    setButtonClicked(prevClick => !prevClick);
+    setOptionButtonClicked(prevClick => !prevClick);
+    setName(prevName => e.target.id);
   }
 
+    
+console.log(options);
   return (
     <div className="select-field">
-      <div className={`select-button ${clicked && `select-button-clicked`}`} onClick={handleClick} >
+      <div className={`select-button ${optionButtonClicked && 'select-button-clicked'}`} onClick={handleClick} >
         <svg
           width="34.5px"
           height="37.5px"
-          fill="#495E57"
+          fill={optionButtonClicked? '#edefee': '#495E57'}
           version="1.1"
           id="Capa_1"
           xmlns="http://www.w3.org/2000/svg"
@@ -44,11 +50,11 @@ export default function Select() {
             </g>{" "}
           </g>
         </svg>
-        <span className="select-main-text">Occasion</span>
+        <span className={`select-main-text ${optionButtonClicked && `change-text-color`}`}>{name}</span>
         <svg
           width="33"
           height="21"
-          className={clicked && `rotate-svg`}
+          className={buttonClicked && `rotate-svg`}
           viewBox="0 0 33 21"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
@@ -61,10 +67,35 @@ export default function Select() {
           />
         </svg>
       </div>
-      <div className={`select-options ${clicked && `clicked-select-options`}`}>
-        <div className="option">Birthday</div>
-        <div className="option">Birthday</div>
-        <div className="option">Birthday</div>
+      <div className={`select-options ${buttonClicked && `display-select-options`}`}>
+        {name === 'Date'&& <div onClick={handleOptionClick} className="date-option" value="0">
+            <div className="month-container">November</div>
+            <div className="day-container">
+                <div className="day">1</div>
+                <div className="day">1</div>
+                <div className="day">1</div>
+                <div className="day">1</div>
+                <div className="day">1</div>
+                <div className="day">1</div>
+                <div className="day">1</div>
+                <div className="day">1</div>
+                <div className="day">1</div>
+                <div className="day">1</div>
+                <div className="day">1</div>
+                <div className="day">1</div>
+                <div className="day">1</div>
+                <div className="day">1</div>
+                <div className="day">1</div>
+                <div className="day">1</div>
+                <div className="day">1</div>
+                <div className="day">1</div>
+                <div className="day">1</div>
+                <div className="day">1</div>
+                <div className="day">1</div>
+            </div>
+        </div>}
+        {name === 'Time' && options.length === 0 && <div onClick={handleOptionClick} className="option" value="0">Pick a date first</div>}
+        {options.map(el => <div onClick={handleOptionClick} id={el} className="option">{el}</div>)}
       </div>
     </div>
   );
