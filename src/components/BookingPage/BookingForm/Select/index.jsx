@@ -1,5 +1,6 @@
 import { useState } from "react";
 import "./style.css";
+import {getDate} from '../../../../utils/getDate';
 
 export default function Select({type, options}) {
   const [buttonClicked, setButtonClicked] = useState(false);
@@ -11,6 +12,9 @@ export default function Select({type, options}) {
   }
   
   const handleOptionClick = (e) => {
+    if (e.target.name != 'day') {
+        
+    }
     setButtonClicked(prevClick => !prevClick);
     setOptionButtonClicked(prevClick => !prevClick);
     setName(prevName => e.target.id);
@@ -68,34 +72,14 @@ console.log(options);
         </svg>
       </div>
       <div className={`select-options ${buttonClicked && `display-select-options`}`}>
-        {name === 'Date'&& <div onClick={handleOptionClick} className="date-option" value="0">
-            <div className="month-container">November</div>
+        {name === 'Date' && <div className="date-option" value="0">
+            <div className="month-container">{getDate().month}</div>
             <div className="day-container">
-                <div className="day">1</div>
-                <div className="day">1</div>
-                <div className="day">1</div>
-                <div className="day">1</div>
-                <div className="day">1</div>
-                <div className="day">1</div>
-                <div className="day">1</div>
-                <div className="day">1</div>
-                <div className="day">1</div>
-                <div className="day">1</div>
-                <div className="day">1</div>
-                <div className="day">1</div>
-                <div className="day">1</div>
-                <div className="day">1</div>
-                <div className="day">1</div>
-                <div className="day">1</div>
-                <div className="day">1</div>
-                <div className="day">1</div>
-                <div className="day">1</div>
-                <div className="day">1</div>
-                <div className="day">1</div>
+                {getDate().days.map(day => <div id={day} name="day" onClick={handleOptionClick} className="day">{day}</div>)}
             </div>
         </div>}
         {name === 'Time' && options.length === 0 && <div onClick={handleOptionClick} className="option" value="0">Pick a date first</div>}
-        {options.map(el => <div onClick={handleOptionClick} id={el} className="option">{el}</div>)}
+        {name !== 'Date' && options.map(el => <div onClick={handleOptionClick} id={el} className="option">{el}</div>)}
       </div>
     </div>
   );

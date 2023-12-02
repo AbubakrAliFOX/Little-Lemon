@@ -21,10 +21,10 @@ export const getDate = () => {
     { name: "November", days: 30 },
     { name: "December", days: 31 },
   ];
-  for (let i = 1; i <= monthsArray[month - 1].days; i++) {
+  for (let i = day; i <= monthsArray[month - 1].days; i++) {
     daysArray.push(i);
   }
-  return {month: monthsArray[month -1].name,days: daysArray }
+  return {month: monthsArray[month -1].name, days: daysArray }
 };
 
 
