@@ -24,6 +24,10 @@
 .select-button-clicked {
 }
 
+.rotate-svg {
+    transform: rotate(180deg);
+}
+
 .select-main-text {
     color: var(--color1);
     font-size: 28px;
@@ -46,6 +50,10 @@
   position: absolute;
   display: none;
 }
+
+.clicked-select-options {
+    display: block;
+} 
 
 .option {
   width: 320px;

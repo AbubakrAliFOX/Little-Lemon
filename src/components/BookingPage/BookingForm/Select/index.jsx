@@ -48,6 +48,7 @@ export default function Select() {
         <svg
           width="33"
           height="21"
+          className={clicked && `rotate-svg`}
           viewBox="0 0 33 21"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
@@ -60,7 +61,7 @@ export default function Select() {
           />
         </svg>
       </div>
-      <div className="select-options">
+      <div className={`select-options ${clicked && `clicked-select-options`}`}>
         <div className="option">Birthday</div>
         <div className="option">Birthday</div>
         <div className="option">Birthday</div>
