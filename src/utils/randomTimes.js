@@ -1,9 +1,8 @@
-export function generateTimes(date) {
+export function generateTimes(input) {
     // date format: 2023-12-03
-    const day = Number(date.split('-')[2]);
+    const day = Number(input);
     let minTime, maxTime, timeIntervals;
     let availableTimes = [];
-
     if (day === NaN) {
         console.log('Date is not a number');
     }

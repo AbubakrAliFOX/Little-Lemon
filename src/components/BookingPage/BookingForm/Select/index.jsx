@@ -1,34 +1,80 @@
 import { useState } from "react";
 import "./style.css";
-import {getDate} from '../../../../utils/getDate';
+import { getDate } from "../../../../utils/getDate";
+import { generateTimes } from "../../../../utils/randomTimes";
 
-export default function Select({type, options}) {
-  const [buttonClicked, setButtonClicked] = useState(false);
-  const [optionButtonClicked, setOptionButtonClicked] = useState(false);
+export default function Select({
+  type,
+  formData,
+  setFormData,
+  availableTimes,
+  setAvailableTimes,
+}) {
+  let options;
   const [name, setName] = useState(type);
 
-  const handleClick = () => {
-    setButtonClicked(prevClick => !prevClick);
-  }
-  
-  const handleOptionClick = (e) => {
-    if (e.target.name != 'day') {
-        
-    }
-    setButtonClicked(prevClick => !prevClick);
-    setOptionButtonClicked(prevClick => !prevClick);
-    setName(prevName => e.target.id);
+  switch (name) {
+    case "Date":
+      options = getDate().days;
+      break;
+    case "Occasion":
+      options = ["Birthday", "Anniversary", "Engagement"];
+      break;
+    case "Time":
+      options = availableTimes;
+      break;
+    case "Guests":
+      options = [1, 2, 3, 4, 5, 6, 7, 8];
+      break;
+    default:
+      // Handle the case when 'name' doesn't match any of the specified values
+      options = [];
+      break;
   }
 
-    
-console.log(options);
+  const [buttonClicked, setButtonClicked] = useState(false);
+  const [optionButtonClicked, setOptionButtonClicked] = useState(false);
+
+  const handleClick = () => {
+    setButtonClicked((prevClick) => !prevClick);
+  };
+
+  const handleOptionClick = (e) => {
+    if (e.target.className === "day") {
+      setFormData((prevData) => ({
+        ...prevData,
+        Date: `${getDate().year}-${getDate().month}-${getDate().day}`,
+      }));
+      setAvailableTimes((previousTimes) => {
+        setFormData((previousFormData) => ({ ...previousFormData, Time: "" }));
+        return generateTimes(e.target.id);
+      });
+    }
+    ///////////////////////////////////////////////
+    setButtonClicked((prevClick) => !prevClick);
+    setOptionButtonClicked((prevClick) => !prevClick);
+    setName((prevName) => e.target.id);
+    if (e.target.className != "day") {
+      setFormData((prevData) => ({
+        ...prevData,
+        [type]: e.target.id,
+      }));
+    }
+  };
+
+  console.log(formData);
   return (
     <div className="select-field">
-      <div className={`select-button ${optionButtonClicked && 'select-button-clicked'}`} onClick={handleClick} >
+      <div
+        className={`select-button ${
+          optionButtonClicked && "select-button-clicked"
+        }`}
+        onClick={handleClick}
+      >
         <svg
           width="34.5px"
           height="37.5px"
-          fill={optionButtonClicked? '#edefee': '#495E57'}
+          fill={optionButtonClicked ? "#edefee" : "#495E57"}
           version="1.1"
           id="Capa_1"
           xmlns="http://www.w3.org/2000/svg"
@@ -54,7 +100,13 @@ console.log(options);
             </g>{" "}
           </g>
         </svg>
-        <span className={`select-main-text ${optionButtonClicked && `change-text-color`}`}>{name}</span>
+        <span
+          className={`select-main-text ${
+            optionButtonClicked && `change-text-color`
+          }`}
+        >
+          {name}
+        </span>
         <svg
           width="33"
           height="21"
@@ -71,15 +123,34 @@ console.log(options);
           />
         </svg>
       </div>
-      <div className={`select-options ${buttonClicked && `display-select-options`}`}>
-        {name === 'Date' && <div className="date-option" value="0">
-            <div className="month-container">{getDate().month}</div>
+      <div
+        className={`select-options ${
+          buttonClicked && `display-select-options`
+        }`}
+      >
+        {name === "Date" && (
+          <div className="date-option" value="0">
+            <div className="month-container">{getDate().monthName}</div>
             <div className="day-container">
-                {getDate().days.map(day => <div id={day} name="day" onClick={handleOptionClick} className="day">{day}</div>)}
+              {options.map((day) => (
+                <div id={day} onClick={handleOptionClick} className="day">
+                  {day}
+                </div>
+              ))}
             </div>
-        </div>}
-        {name === 'Time' && options.length === 0 && <div onClick={handleOptionClick} className="option" value="0">Pick a date first</div>}
-        {name !== 'Date' && options.map(el => <div onClick={handleOptionClick} id={el} className="option">{el}</div>)}
+          </div>
+        )}
+        {name === "Time" && options.length === 0 && (
+          <div onClick={handleOptionClick} className="option" value="0">
+            Pick a date first
+          </div>
+        )}
+
+        {options.map((el) => (
+          <div onClick={handleOptionClick} className={`option`} id={el}>
+            {el}
+          </div>
+        ))}
       </div>
     </div>
   );
