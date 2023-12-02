@@ -1,4 +1,4 @@
-
+import { generateTimes } from "../../../utils/randomTimes";
 
 
 export default function BookingForm ({formData, setFormData, availableTimes, setAvailableTimes}) {
@@ -7,7 +7,10 @@ export default function BookingForm ({formData, setFormData, availableTimes, set
             return {...previousData, [e.target.name]: e.target.value}
         });
         if (e.target.name === 'date') {
-            setAvailableTimes(previousTimes => ['17:00', '11:00', '17:00', '17:00', '17:00', '17:00']);
+            setAvailableTimes(previousTimes => {
+                setFormData(previousFormData => ({...previousFormData, time:''}));
+                return generateTimes(e.target.value);
+            });
         }
     }
     console.log(formData);
@@ -17,6 +20,7 @@ export default function BookingForm ({formData, setFormData, availableTimes, set
     <input name="date" onChange={handleChange} type="date" id="res-date" value={formData.date} />
     <label htmlFor="res-time">Choose time</label>
     <select name="time" onChange={handleChange} value={formData.time} id="res-time">
+    <option value="">{formData.date? 'Select your option': 'Pick a date frist'}</option>
        {availableTimes.map(el => <option>{el}</option>)}
     </select>
     <label htmlFor="guests">Number of guests</label>
