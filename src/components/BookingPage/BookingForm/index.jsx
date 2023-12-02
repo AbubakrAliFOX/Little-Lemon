@@ -1,5 +1,5 @@
 import { generateTimes } from "../../../utils/randomTimes";
-
+import Select from "./Select";
 
 export default function BookingForm ({formData, setFormData, availableTimes, setAvailableTimes}) {
     const handleChange = (e) => {
@@ -16,12 +16,12 @@ export default function BookingForm ({formData, setFormData, availableTimes, set
     console.log(formData);
 
     return <form >
-    <label htmlFor="res-date">Choose date</label>
+    {/* <label htmlFor="res-date">Choose date</label>
     <input name="date" onChange={handleChange} type="date" id="res-date" value={formData.date} />
     <label htmlFor="res-time">Choose time</label>
     <select name="time" onChange={handleChange} value={formData.time} id="res-time">
     <option value="">{formData.date? 'Select your option': 'Pick a date frist'}</option>
-       {availableTimes.map(el => <option>{el}</option>)}
+       {availableTimes.map(el => <option key={el}>{el}</option>)}
     </select>
     <label htmlFor="guests">Number of guests</label>
     <input name="guests" onChange={handleChange} value={formData.guests} type="number" placeholder="1" min="1" max="10" id="guests" />
@@ -31,6 +31,8 @@ export default function BookingForm ({formData, setFormData, availableTimes, set
        <option>Anniversary</option>
        <option>Engagement</option>
     </select>
-    <input type="submit" value="Make Your reservation"></input>
+    <input type="submit" value="Make Your reservation"></input> */}
+    <Select />
+    <Select />
  </form>
 }
