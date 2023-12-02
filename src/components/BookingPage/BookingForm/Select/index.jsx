@@ -60,7 +60,7 @@ export default function Select({
     ///////////////////////////////////////////////
     setIsOptionSelected(prevValue => true);
     setOpen(prevValue => false);
-    // setName((prevName) => e.target.id);
+    setDisplayName((prevDisplayName) => e.target.id);
   };
 
   console.log(formData);
@@ -121,7 +121,7 @@ export default function Select({
             fill-rule="evenodd"
             clip-rule="evenodd"
             d="M31.2065 0.839949C30.1012 -0.266718 28.3065 -0.266718 27.2012 0.839949L16.0211 13.1733L4.83983 0.839949C3.7345 -0.266718 1.9398 -0.266718 0.834463 0.839949C-0.270871 1.94662 -0.270871 3.74663 0.834463 4.8533L13.8411 19.2C14.4398 19.8 15.2385 20.0666 16.0211 20.0133C16.8038 20.0666 17.6012 19.8 18.1999 19.2L31.2065 4.8533C32.3119 3.74663 32.3119 1.94662 31.2065 0.839949Z"
-            fill="#495E57"
+            fill={isOptionSelected ? "#edefee" : "#495E57"}
           />
         </svg>
       </div>
