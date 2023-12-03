@@ -37,7 +37,6 @@ export default function Select({
   }
 
   const [open, setOpen] = useState(false);
-  const [isOptionSelected, setIsOptionSelected] = useState(false);
 
   const handleClick = () => {
     setOpen((prevValue) => !prevValue);
@@ -59,7 +58,6 @@ export default function Select({
     }
 
     ///////////////////////////////////////////////
-    setIsOptionSelected((prevValue) => true);
     setOpen((prevValue) => false);
     setDisplayName((prevDisplayName) => e.target.id)
     // For displaying time reset when the date is selected
@@ -121,17 +119,21 @@ export default function Select({
             </div>
           </div>
         )}
-        {type === "Time" && options.length === 0 && (
-          <div onClick={handleOptionClick} className="option" value="0">
-            Pick a date first
-          </div>
-        )}
 
-        {options.map((el) => (
-          <div onClick={handleOptionClick} className={`option ${type}`} id={el}>
+        {type !== "Date" && options.map((el) => (
+            <div onClick={handleOptionClick} className={`option ${type}`} id={el}>
             {el}
           </div>
         ))}
+
+
+
+        
+        {type === "Time" && options.length === 0 && (
+          <div className="option" value="0">
+            Pick a date first
+          </div>
+        )}
       </div>
     </div>
   );
