@@ -1,13 +1,11 @@
-export default function SVG({ type, isOptionSelected }) {
-  console.log(isOptionSelected);
-
+export default function SVG({ type, formData }) {
   return (
     <>
       {type === "Occasion" && (
         <svg
           width="34.5px"
           height="37.5px"
-          fill={isOptionSelected ? "#edefee" : "#495E57"}
+          fill={formData ? "#edefee" : "#495E57"}
           version="1.1"
           id="Capa_1"
           xmlns="http://www.w3.org/2000/svg"
@@ -39,7 +37,7 @@ export default function SVG({ type, isOptionSelected }) {
         <svg
           width="34.5px"
           height="37.5px"
-          fill={isOptionSelected ? "#edefee" : "#495E57"}
+          fill={formData ? "#edefee" : "#495E57"}
           viewBox="0 0 24 24"
           xmlns="http://www.w3.org/2000/svg"
         >
@@ -68,7 +66,7 @@ export default function SVG({ type, isOptionSelected }) {
         <svg
           width="34.5px"
           height="37.5px"
-          fill={isOptionSelected ? "#edefee" : "#495E57"}
+          fill={formData ? "#edefee" : "#495E57"}
           viewBox="0 0 24 24"
           id="Layer_1"
           data-name="Layer 1"
@@ -92,7 +90,7 @@ export default function SVG({ type, isOptionSelected }) {
           height="37.5px"
           viewBox="0 0 16 16"
           xmlns="http://www.w3.org/2000/svg"
-          fill={isOptionSelected ? "#edefee" : "#495E57"}
+          fill={formData ? "#edefee" : "#495E57"}
           class="bi bi-people-fill"
         >
           <g id="SVGRepo_bgCarrier" stroke-width="0"></g>

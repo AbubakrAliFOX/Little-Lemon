@@ -10,6 +10,7 @@ export default function BookingForm() {
     Guests: "",
     Occasion: "",
   });
+  const [timeDisplay, setTimeDisplay] = useState("");
 
   return (
     <form>
@@ -25,6 +26,8 @@ export default function BookingForm() {
             setAvailableTimes={setAvailableTimes}
             formData={formData}
             setFormData={setFormData}
+            timeDisplay={timeDisplay}
+            setTimeDisplay={setTimeDisplay}
           />
           <Select
             type={"Time"}
@@ -32,6 +35,8 @@ export default function BookingForm() {
             setAvailableTimes={setAvailableTimes}
             formData={formData}
             setFormData={setFormData}
+            timeDisplay={timeDisplay}
+            setTimeDisplay={setTimeDisplay}
           />
         </div>
         <div className="form-field">

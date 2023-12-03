@@ -10,9 +10,12 @@ export default function Select({
   setFormData,
   availableTimes,
   setAvailableTimes,
+  timeDisplay,
+  setTimeDisplay
 }) {
   let options;
   const [displayName, setDisplayName] = useState(type);
+  if (type === 'Time') setTimeDisplay(prevName => (type))
 
   switch (type) {
     case "Date":
@@ -42,12 +45,9 @@ export default function Select({
 
   const handleOptionClick = (e) => {
     if (e.target.className === "day") {
-      setFormData((prevData) => ({
-        ...prevData,
-        Date: `${getDate().year}-${getDate().month}-${e.target.id}`,
-      }));
+        setTimeDisplay(prevName => ('Time'));
       setAvailableTimes((previousTimes) => {
-        setFormData((previousFormData) => ({ ...previousFormData, Time: "" }));
+        setFormData((previousFormData) => ({ ...previousFormData, Time: "",Date: `${getDate().year}-${getDate().month}-${e.target.id}` }));
         return generateTimes(e.target.id);
       });
     }
@@ -61,27 +61,32 @@ export default function Select({
     ///////////////////////////////////////////////
     setIsOptionSelected((prevValue) => true);
     setOpen((prevValue) => false);
-    setDisplayName((prevDisplayName) => e.target.id);
-  };
+    setDisplayName((prevDisplayName) => e.target.id)
+    // For displaying time reset when the date is selected
+    
+    // console.dir(e.target);
+};
 
   console.log(formData);
-  console.log(open);
+//   console.log(open);
+    console.log(timeDisplay);
   return (
     <div className="select-field">
       <div
         className={`select-button ${
-          isOptionSelected && "select-button-clicked"
+            formData[`${type}`] && "select-button-clicked"
         }`}
         onClick={handleClick}
       >
-        <SVG type={type} isOptionSelected={isOptionSelected}/>
+        <SVG type={type} formData={formData[`${type}`]}/>
         
         <span
           className={`select-main-text ${
-            isOptionSelected && `change-text-color`
+            formData[`${type}`] && `change-text-color`
           }`}
         >
-          {displayName}
+          {/* {displayName !== 'Time' && displayName} */}
+          {formData[`${type}`]? formData[`${type}`]: type }
         </span>
         <svg
           width="33"
@@ -95,7 +100,7 @@ export default function Select({
             fill-rule="evenodd"
             clip-rule="evenodd"
             d="M31.2065 0.839949C30.1012 -0.266718 28.3065 -0.266718 27.2012 0.839949L16.0211 13.1733L4.83983 0.839949C3.7345 -0.266718 1.9398 -0.266718 0.834463 0.839949C-0.270871 1.94662 -0.270871 3.74663 0.834463 4.8533L13.8411 19.2C14.4398 19.8 15.2385 20.0666 16.0211 20.0133C16.8038 20.0666 17.6012 19.8 18.1999 19.2L31.2065 4.8533C32.3119 3.74663 32.3119 1.94662 31.2065 0.839949Z"
-            fill={isOptionSelected ? "#edefee" : "#495E57"}
+            fill={formData[[`${type}`]] ? "#edefee" : "#495E57"}
           />
         </svg>
       </div>
@@ -123,7 +128,7 @@ export default function Select({
         )}
 
         {options.map((el) => (
-          <div onClick={handleOptionClick} className={`option`} id={el}>
+          <div onClick={handleOptionClick} className={`option ${type}`} id={el}>
             {el}
           </div>
         ))}
