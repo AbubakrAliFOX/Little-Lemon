@@ -51,7 +51,20 @@ export default function BookingForm() {
           />
         </div>
       </section>
-      <button type="submit">Reserve a table</button>
+      <button
+        id="book-table"
+        type="submit"
+        disabled={
+          !(
+            formData.Date &&
+            formData.Time &&
+            formData.Guests &&
+            formData.Occasion
+          )
+        }
+      >
+        Reserve a table
+      </button>
     </form>
   );
 }
