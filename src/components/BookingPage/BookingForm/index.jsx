@@ -12,39 +12,46 @@ export default function BookingForm() {
   });
 
   return (
-    <form className="reservation-form">
-      <div className="form-field">
-        <Select
-          type={"Date"}
-          availableTimes={availableTimes}
-          setAvailableTimes={setAvailableTimes}
-          formData={formData}
-          setFormData={setFormData}
-        />
-        <Select
-          type={"Time"}
-          availableTimes={availableTimes}
-          setAvailableTimes={setAvailableTimes}
-          formData={formData}
-          setFormData={setFormData}
-        />
-      </div>
-      <div className="form-field">
-        <Select
-          type={"Guests"}
-          availableTimes={availableTimes}
-          setAvailableTimes={setAvailableTimes}
-          formData={formData}
-          setFormData={setFormData}
-        />
-        <Select
-          type={"Occasion"}
-          availableTimes={availableTimes}
-          setAvailableTimes={setAvailableTimes}
-          formData={formData}
-          setFormData={setFormData}
-        />
-      </div>
+    <form>
+      <section className="reservation-form">
+        <input type="hidden" name="Date" value={formData.Date} />
+        <input type="hidden" name="Occasion" value={formData.Occasion} />
+        <input type="hidden" name="Time" value={formData.Time} />
+        <input type="hidden" name="Guests" value={formData.Guests} />
+        <div className="form-field">
+          <Select
+            type={"Date"}
+            availableTimes={availableTimes}
+            setAvailableTimes={setAvailableTimes}
+            formData={formData}
+            setFormData={setFormData}
+          />
+          <Select
+            type={"Time"}
+            availableTimes={availableTimes}
+            setAvailableTimes={setAvailableTimes}
+            formData={formData}
+            setFormData={setFormData}
+          />
+        </div>
+        <div className="form-field">
+          <Select
+            type={"Guests"}
+            availableTimes={availableTimes}
+            setAvailableTimes={setAvailableTimes}
+            formData={formData}
+            setFormData={setFormData}
+          />
+          <Select
+            type={"Occasion"}
+            availableTimes={availableTimes}
+            setAvailableTimes={setAvailableTimes}
+            formData={formData}
+            setFormData={setFormData}
+          />
+        </div>
+      </section>
+      <button type="submit">Reserve a table</button>
     </form>
   );
 }
