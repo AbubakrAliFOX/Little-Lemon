@@ -5,6 +5,10 @@ header {
     border-bottom: 3px solid var(--color1);
 }
 
+header nav {
+    margin-left: auto;
+}
+
 li > a {
     transition: 0.19s color ease-in-out;
     text-decoration: none;
@@ -32,7 +36,7 @@ li {
     font-family: 'Karla', sans-serif;
     font-size: 20px;
     font-weight: 500;
-    margin-right: 30px;
+    margin: auto 15px;
 }
 
 header li, header nav {
