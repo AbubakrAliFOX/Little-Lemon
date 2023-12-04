@@ -1,4 +1,6 @@
-export default function Button({ content = "Content", type = "main", moreStyles, containerStyles}) {
+import { Link } from "react-router-dom";
+
+export default function Button({ content = "Content", type = "main", moreStyles, containerStyles, linkPath}) {
   const backgroundColor = type == "main" ? "#F4CE14" : "#495E57";
   const styles = {
     width: "200px",
@@ -16,8 +18,8 @@ export default function Button({ content = "Content", type = "main", moreStyles,
   };
 
   return (
-    <a style={containerStyles} className=".button" href="#">
+    <Link to={linkPath} style={containerStyles} className=".button" >
       <button style={{...styles, ...moreStyles}}>{content}</button>
-    </a>
+    </Link>
   );
 }

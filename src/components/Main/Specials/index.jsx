@@ -6,7 +6,7 @@ export default function Specials() {
     <article className="page-padding">
       <section className="specials-main-display">
         <h3 className="specials-title">Our specials this week!</h3>
-        <Button content="Order Online" />
+        <Button linkPath={'/order'} content="Order Online" />
       </section>
       <section className="cards-display">
       <Card
