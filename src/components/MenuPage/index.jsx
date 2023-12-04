@@ -41,7 +41,6 @@ export default function MenuPage() {
         <MenuItem />
         <MenuItem />
         <MenuItem />
-        <MenuItem />
       </section>
     </article>
   );
