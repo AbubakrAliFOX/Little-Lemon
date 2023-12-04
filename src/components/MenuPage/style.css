@@ -19,6 +19,7 @@
 
 .menu-page ul li:hover {
     background-color: var(--color2);
+    cursor: pointer;
 }
 
 .menu-page ul li a {
@@ -27,4 +28,43 @@
   font-size: 24px;
   font-weight: 700;
   margin: 30px 15px;
+}
+
+
+.menu-page .dish-price {
+    font-size: 20px;
+    
+}
+
+.menu-display {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: start;
+}
+
+.menu-page .card {
+    width: 30%;
+    margin: 10px;
+}
+
+
+.Add-to-basket {
+    width: 30%;
+    height: 50px;
+    text-align: center;
+    margin: auto;
+    border-radius: 16px;
+}
+
+.Add-to-basket:hover {
+    background-color: var(--color2);
+}
+
+#add-to-basket-link {
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
