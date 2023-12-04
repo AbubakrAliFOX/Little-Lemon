@@ -74,3 +74,19 @@
   align-items: center;
   justify-content: center;
 }
+
+.menu-page .dish-name {
+    /* overflow: auto; */
+    /* text-overflow: none; */
+    max-width: 100%;
+    overflow-wrap: break-word;
+    word-break: break-all;
+}
+
+.menu-page .dish-image{
+    /* width: 30%; */
+    object-fit: cover;
+    max-height: 160px;
+    /* object-position: center 0; */
+
+}

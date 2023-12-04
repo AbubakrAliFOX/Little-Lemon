@@ -42,3 +42,8 @@ li {
 header li, header nav {
     display: inline-block;
 }
+
+selected-nav-link {
+    color: var(--color2);
+    border: 2px solid blue;
+}
