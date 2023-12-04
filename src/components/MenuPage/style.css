@@ -16,6 +16,7 @@
 .menu-page ul li {
   display: inline-block;
   margin: 10px;
+  padding: 10px;
   border-radius: 10px;
   transition: 0.3s all;
 }
@@ -30,7 +31,8 @@
   text-align: center;
   font-size: 24px;
   font-weight: 700;
-  margin: 30px 15px;
+  height: 100%;
+  width: 100%;
 }
 
 .menu-page .dish-price {

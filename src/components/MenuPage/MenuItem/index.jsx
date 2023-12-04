@@ -1,9 +1,9 @@
 import AddToBasket from "../AddToBasket";
 
-export default function MenuItem() {
+export default function MenuItem({ imgUrl, name, price, key }) {
   return (
-    <figure className="card">
-      <img className="dish-image" src="/greek salad.jpg" alt="Dish Image" />
+    <figure key={key} className="card">
+      <img className="dish-image" src={imgUrl} alt="Dish Image" />
       <div className="card-body">
         <div
           style={{
@@ -12,8 +12,8 @@ export default function MenuItem() {
             alignItems: "center",
           }}
         >
-          <h4 className="dish-name">Greek Salad</h4>
-          <p className="dish-price">$15.99</p>
+          <h4 className="dish-name">{name}</h4>
+          <p className="dish-price">${price}</p>
         </div>
         {/* <p className="dish-description">{description}</p> */}
         <AddToBasket />

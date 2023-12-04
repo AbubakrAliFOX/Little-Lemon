@@ -2,7 +2,7 @@ export default function Footer() {
   return (
     <footer className="page-padding">
       <section className="footer-logo">
-        <img src="/footer-logo.jpg" alt="Footer Logo" />
+        <img src="/footer-logo.webp" alt="Footer Logo" />
       </section>
       <section>
         <h5>Navigation links</h5>

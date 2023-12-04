@@ -13,19 +13,19 @@ export default function Specials() {
           name="Greek Salad"
           price="$12.99"
           description="The famous greek salad of crispy lettuce, peppers, olives and our Chicago style feta cheese, garnished with crunchy garlic and rosemary croutons."
-    imgSource="/greek salad.jpg"
+    imgSource="/greek-salad.webp"
        />
        <Card
           name="Greek Salad"
           price="$12.99"
           description="The famous greek salad of crispy lettuce, peppers, olives and our Chicago style feta cheese, garnished with crunchy garlic and rosemary croutons."
-    imgSource="/greek salad.jpg"
+    imgSource="/greek-salad.webp"
        />
        <Card
           name="Greek Salad"
           price="$12.99"
           description="The famous greek salad of crispy lettuce, peppers, olives and our Chicago style feta cheese, garnished with crunchy garlic and rosemary croutons."
-    imgSource="/greek salad.jpg"
+    imgSource="/greek-salad.webp"
        />
       </section>
     </article>

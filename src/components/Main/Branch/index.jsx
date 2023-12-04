@@ -22,7 +22,7 @@ export default function Branch() {
           />
           <img
             className="branch-img"
-            src="/restaurant2.jpg"
+            src="/restaurant2.webp"
             alt="Main Photo"
           />
         </section>
