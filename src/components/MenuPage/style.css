@@ -21,6 +21,10 @@
   transition: 0.3s all;
 }
 
+.selected-li {
+    background-color: var(--color2);
+}
+
 .menu-page ul li:hover {
   background-color: var(--color2);
   cursor: pointer;
