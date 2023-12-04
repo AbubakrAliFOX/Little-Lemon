@@ -2,6 +2,7 @@ header {
     display: flex;
     align-items: center;
     padding: var(--pageSpacing) var(--pagePadding);
+    border-bottom: 3px solid var(--color1);
 }
 
 li > a {
