@@ -66,14 +66,14 @@
 .cards-display {
   margin-top: 48px;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   flex-wrap: wrap;
 }
 
 .card {
   margin: 0;
   padding-bottom: 18px;
-  width: 32%;
+  width: 30%;
   background-color: var(--color3);
   border-radius: 16px;
   overflow: hidden;
@@ -190,7 +190,8 @@ footer img {
 footer li a, footer li {
   color: var(--color3);
   font-size: 18px;
-  overflow: scroll;
+  word-break: break-all;
+  margin: 0;
 }
 
 footer h5 {
