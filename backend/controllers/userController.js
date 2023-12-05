@@ -1,7 +1,12 @@
 import expressAsyncHandler from "express-async-handler";
+import User from '../models/userModel.js'
+
 
 const createUser = expressAsyncHandler(async (req, res) => {
-    res.send("Usere Created!")
+    const user = await User.create({
+        username: 'Hfjlhdasjlfhds'
+    });
+    console.log(user);
 })
 
 
