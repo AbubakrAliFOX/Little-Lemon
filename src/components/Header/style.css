@@ -43,3 +43,8 @@ li {
 header li, header nav {
     display: inline-block;
 }
+
+
+header svg {
+    display: none;
+}
