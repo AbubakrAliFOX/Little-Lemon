@@ -7,7 +7,7 @@
   --color2: #f4ce14;
   --color3: #edefee;
   --color4: #ee9972;
-  --pagePadding: 290px;
+  --pagePadding: 200px;
   --pageSpacing: 35px;
 }
 
@@ -25,18 +25,27 @@ body {
   padding: var(--pageSpacing) var(--pagePadding);
 }
 
+/* @media (width <= 1461px) {
+  .menu-page nav a {
+    font-size: 16px;
+  }
+
+} */
+
 @media (width >= 1461px) {
   .page-padding {
-    padding: 35px 290px;
+    padding: 35px 280px;
   }
+
 
 }
 
 @media (width <= 1461px) and (width >= 1243px){
   .page-padding {
-    padding: 35px 180px;
+    padding: 35px 170px;
   }
 
+  
 }
 
 @media (width <= 1243px) and (width >= 1041px) {
@@ -46,14 +55,22 @@ body {
 
 }
 
-@media (width <= 1041px) and (width >= 941px) {
+@media (width <= 1080px) and (width >= 941px) {
   .page-padding {
     padding: 35px 30px;
   }
 
+
 }
 
-@media (width <= 941px) and (width >= 768px){
+@media (width < 919px) {
+  .menu-page ul{
+    /* font-size: 20px; */
+    justify-content: start;
+  }
+}
+
+@media (width <= 980px) and (width >= 768px){
   .page-padding {
     padding: 35px 13px;
   }
