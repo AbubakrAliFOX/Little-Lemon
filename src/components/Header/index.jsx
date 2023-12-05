@@ -31,22 +31,22 @@ export default function Header() {
       <nav className={isOpen && 'hidden'} id="main-page-nav">
         <ul>
           <li>
-            <Link to="/">Home</Link>
+            <Link onClick={handleClick} to="/">Home</Link>
           </li>
           <li>
-            <Link to="/about">About</Link>
+            <Link onClick={handleClick} to="/about">About</Link>
           </li>
           <li>
-            <Link to="/menu">Menu</Link>
+            <Link onClick={handleClick} to="/menu">Menu</Link>
           </li>
           <li>
-            <Link to="/reservations">Reservations</Link>
+            <Link onClick={handleClick} to="/reservations">Reservations</Link>
           </li>
           <li>
-            <Link to="/order">Order Online</Link>
+            <Link onClick={handleClick} to="/order">Order Online</Link>
           </li>
           <li>
-            <Link to="/login">Login</Link>
+            <Link onClick={handleClick} to="/login">Login</Link>
           </li>
         </ul>
       </nav>
