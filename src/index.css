@@ -26,11 +26,11 @@ body {
 }
 
 @media screen and (width < 480px) {
+  /* header */
   .page-padding {
-    padding: 35px 0;
+    padding: 30px 0;
   }
 
-  
   #logo-and-burger {
     display: flex;
     align-items: center;
@@ -44,7 +44,6 @@ body {
     display: block;
     /* justify-content: center; */
   }
-  
 
   header ul,
   header li,
@@ -67,6 +66,44 @@ body {
   .hidden {
     display: none;
   }
+
+  /* Hero */
+  .hero {
+    display: block;
+    text-align: center;
+  }
+
+  .content,
+  .img-container {
+    width: 100%;
+    /* padding-top: 30px; */
+  }
+
+  .img-container {
+    margin-top: 20px;
+  }
+
+  /* specials */
+  .specials-main-display {
+    display: block;
+  }
+
+  .specials-title {
+    font-size: 30px;
+    margin-bottom: 15px;
+  }
+
+  .cards-display {
+    display: block;
+    margin-top: 15px;
+  }
+
+  .card {
+    width: 100%;
+    margin: 0 0 20px 0 !important; 
+  }
+
+  
 }
 
 * {
