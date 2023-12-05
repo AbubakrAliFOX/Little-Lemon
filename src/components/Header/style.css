@@ -1,13 +1,14 @@
 header {
     display: flex;
     align-items: center;
-    padding: var(--pageSpacing) var(--pagePadding);
+    justify-content: space-between;
+    flex-wrap: wrap;
     border-bottom: 3px solid var(--color1);
 }
 
-header nav {
+/* header nav {
     margin-left: auto;
-}
+} */
 
 li > a {
     transition: 0.19s color ease-in-out;
@@ -41,9 +42,4 @@ li {
 
 header li, header nav {
     display: inline-block;
-}
-
-selected-nav-link {
-    color: var(--color2);
-    border: 2px solid blue;
 }

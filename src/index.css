@@ -1,12 +1,12 @@
 :root {
-  font-family: 'Karla', sans-serif;
+  font-family: "Karla", sans-serif;
   /* font-family: "Markazi Text", serif; */
   line-height: 1.5;
   font-weight: 400;
-  --color1: #495E57;
+  --color1: #495e57;
   --color2: #f4ce14;
-  --color3: #EDEFEE;
-  --color4: #EE9972;
+  --color3: #edefee;
+  --color4: #ee9972;
   --pagePadding: 290px;
   --pageSpacing: 35px;
 }
@@ -14,4 +14,61 @@
 body {
   margin: 0;
   padding: 0;
+}
+
+/* #root > header, #root > main, #root > footer {
+  padding: 35px 290px;
+} */
+.page-padding {
+  /* pageSpacing 35px*/
+  /* pagePadding 290px */
+  padding: var(--pageSpacing) var(--pagePadding);
+}
+
+@media screen and (width < 480px) {
+  .page-padding {
+    padding: 35px 0;
+  }
+
+  
+  #logo-and-burger {
+    display: flex;
+    align-items: center;
+  }
+
+  header img {
+    margin: 5px auto;
+  }
+
+  header {
+    display: block;
+    /* justify-content: center; */
+  }
+  
+
+  header ul,
+  header li,
+  header nav {
+    /* list-style-type: none; */
+    display: block;
+  }
+
+  header nav {
+    margin: 15px 0;
+    transition: 0.5s all;
+  }
+
+  header li {
+    background-color: var(--color3);
+    padding: 0;
+    margin: 0;
+  }
+
+  .hidden {
+    display: none;
+  }
+}
+
+* {
+  /* outline: 1px solid limegreen !important; */
 }
