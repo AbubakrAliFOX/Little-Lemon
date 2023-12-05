@@ -21,7 +21,7 @@ function App() {
       <Route path='/reservations' element={<BookingPage />} />
       <Route path='*' element={<ErrorPage />} />
      </Routes>
-     {/* <Footer /> */}
+     <Footer />
     </>
   )
 }
