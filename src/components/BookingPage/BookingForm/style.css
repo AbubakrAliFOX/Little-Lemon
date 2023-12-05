@@ -1,11 +1,12 @@
 .reservation-form {
     display: flex;
+    flex-wrap: wrap;
     gap: 5%;
 }
 
 #book-table {
     height: 60px;
-    width: 300px;
+    width: 318px;
     background-color: var(--color3);
     color: var(--color1);
     border: 2px var(--color1) solid;
