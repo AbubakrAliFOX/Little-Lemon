@@ -1,10 +1,17 @@
 import express from 'express';
+import router from './routes/userRoutes.js'
 const app = express();
-const router = express.Router();
+
+// MiddleWare
+import errorHandler from './middleware/errorhandler.js';
+
+// const router = express.Router();
+app.use('/user', router);
 
 
-app.get('/api', (req, res) => {
-    res.send('Ji');
-})
+
+app.use(express.json()); 
+app.use(express.urlencoded({extended: false}));
+app.use(errorHandler);
 
 app.listen(3000, () => console.log('Running on 3000'));
