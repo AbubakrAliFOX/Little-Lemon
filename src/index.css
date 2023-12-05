@@ -60,7 +60,21 @@ body {
     padding: 35px 30px;
   }
 
+}
 
+
+@media (width <= 1080px) {
+  .menu-page .card {
+    width: 45%;
+  }
+
+  .menu-display {
+    justify-content: center;
+  }
+
+  .menu-page .dish-image {
+    max-height: 240px;
+  }
 }
 
 @media (width < 919px) {
@@ -210,6 +224,17 @@ body {
 
   #reserve-title {
     font-size: 36px;
+  }
+
+  /* Menu */
+
+  .menu-page .card {
+    width: 85%;
+  }
+
+  .menu-page .dish-image {
+    max-height: 100%;
+    height: auto;
   }
 }
 
