@@ -4,15 +4,13 @@
   border-radius: 6px;
   margin: 20px 0;
   position: sticky;
-  top: 10px;
+  top: 0;
 }
 
 .menu-page ul {
   display: flex;
   justify-content: space-evenly;
   /* margin: 30px 15px; */
-  overflow-x: scroll;
-
 }
 
 .menu-page ul li {

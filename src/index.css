@@ -36,34 +36,31 @@ body {
   .page-padding {
     padding: 35px 280px;
   }
-
-
 }
 
-@media (width <= 1461px) and (width >= 1243px){
+@media (width <= 1461px) and (width >= 1243px) {
   .page-padding {
     padding: 35px 170px;
   }
-
-  
 }
 
 @media (width <= 1243px) and (width >= 1041px) {
   .page-padding {
     padding: 35px 80px;
   }
-
 }
 
 @media (width <= 1080px) and (width >= 941px) {
   .page-padding {
     padding: 35px 30px;
   }
-
 }
 
-
 @media (width <= 1080px) {
+  .menu-page ul {
+    overflow-x: scroll;
+  }
+
   .menu-page .card {
     width: 45%;
   }
@@ -78,13 +75,13 @@ body {
 }
 
 @media (width < 919px) {
-  .menu-page ul{
+  .menu-page ul {
     /* font-size: 20px; */
     justify-content: start;
   }
 }
 
-@media (width <= 980px) and (width >= 768px){
+@media (width <= 980px) and (width >= 768px) {
   .page-padding {
     padding: 35px 13px;
   }
@@ -98,11 +95,9 @@ body {
     margin: 0 auto 20px auto !important;
   }
 
-
-  footer h5{
+  footer h5 {
     font-size: 18px;
   }
-
 }
 
 @media (width <= 768px) {
@@ -219,7 +214,7 @@ body {
   #book-table {
     display: block;
     margin-left: auto;
-    margin-right: auto ;
+    margin-right: auto;
   }
 
   #reserve-title {
