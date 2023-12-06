@@ -57,7 +57,7 @@ export default function BookingForm() {
         </div>
       </section>
       <button
-        id="book-table"
+        className="submit-button"
         type="submit"
         disabled={
           !(

@@ -8,7 +8,7 @@ import Footer from './components/Footer';
 import ErrorPage from './components/ErrorPage';
 import BookingPage from './components/BookingPage';
 import MenuPage from './components/MenuPage';
-import RegisterForm from './components/RegisterForm';
+import RegisterPage from './components/RegisterPage';
 
 function App() {
 
@@ -20,7 +20,7 @@ function App() {
       <Route path='/about' element={<div>Dssdad</div>} />
       <Route path='/menu' element={<MenuPage />} />
       <Route path='/reservations' element={<BookingPage />} />
-      <Route path='/login' element={<RegisterForm />} />
+      <Route path='/login' element={<RegisterPage />} />
       <Route path='*' element={<ErrorPage />} />
      </Routes>
      <Footer />
