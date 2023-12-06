@@ -2,13 +2,13 @@ import express from "express";
 const router = express.Router();
 
 //Controllers
-import createUser from "../controllers/userController.js";
+import { createUser } from "../controllers/userController.js";
+import { loginUser } from "../controllers/userController.js";
 
-router
-  .route("/register")
-  .get(createUser)
-//   .post(catchAsync(users.register));
+router.post("/register", createUser);
+// .get(createUser)
 
+router.post("/login", loginUser);
 // router
 //   .route("/login")
 //   .get(users.renderLogin)
