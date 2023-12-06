@@ -1,4 +1,5 @@
 import RegisterForm from "./RegisterForm"
+import './style.css'
 
 export default function RegisterPage () {
     return <article className="page-padding">
