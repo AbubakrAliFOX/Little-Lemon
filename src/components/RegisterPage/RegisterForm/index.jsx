@@ -31,8 +31,10 @@ export default function RegisterForm() {
   });
 
   const handleSubmit = (e) => {
-    e.preventDefault();
+    // e.preventDefault();
   };
+
+  console.log(formik.values);
 
   return (
     <form
@@ -49,13 +51,17 @@ export default function RegisterForm() {
             placeholder="Your name"
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
-            className={formik.errors.name && formik.touched.name && 'red-border'}
+            className={
+              formik.errors.name && formik.touched.name && "red-border"
+            }
             value={formik.values.name}
             name="name"
             id="name"
             type="text"
           />{" "}
-          {formik.errors.name && formik.touched.name && <span>{formik.errors.name}</span>}
+          {formik.errors.name && formik.touched.name && (
+            <span>{formik.errors.name}</span>
+          )}
         </div>
         <div className="form-field">
           <label className="form-control" htmlFor="password">
@@ -65,13 +71,17 @@ export default function RegisterForm() {
             placeholder="Your password"
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
-            className={formik.errors.password && formik.touched.password && 'red-border'}
+            className={
+              formik.errors.password && formik.touched.password && "red-border"
+            }
             value={formik.values.password}
             name="password"
             id="password"
             type="password"
           />{" "}
-          {formik.errors.password && formik.touched.password && <span>{formik.errors.password}</span>}
+          {formik.errors.password && formik.touched.password && (
+            <span>{formik.errors.password}</span>
+          )}
         </div>
         <div className="form-field">
           <label className="form-control" htmlFor="email">
@@ -81,13 +91,17 @@ export default function RegisterForm() {
             placeholder="example@gmail.com"
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
-            className={formik.errors.email && formik.touched.email && 'red-border'}
+            className={
+              formik.errors.email && formik.touched.email && "red-border"
+            }
             value={formik.values.email}
             name="email"
             id="email"
             type="text"
           />{" "}
-          {formik.errors.email && formik.touched.email && <span>{formik.errors.email}</span>}
+          {formik.errors.email && formik.touched.email && (
+            <span>{formik.errors.email}</span>
+          )}
         </div>
         <div className="form-field">
           <label className="form-control" htmlFor="address">
@@ -97,16 +111,24 @@ export default function RegisterForm() {
             placeholder="Your address"
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
-            className={formik.errors.address && formik.touched.address &&  'red-border'}
+            className={
+              formik.errors.address && formik.touched.address && "red-border"
+            }
             value={formik.values.address}
             name="address"
             id="address"
             type="text"
           />{" "}
-          {formik.errors.address && formik.touched.address && <span>{formik.errors.address}</span>}
+          {formik.errors.address && formik.touched.address && (
+            <span>{formik.errors.address}</span>
+          )}
         </div>
       </section>
-      <button className="submit-button" type="submit" disabled={formik.errors}>
+      <button
+        className="submit-button"
+        type="submit"
+        disabled={!(formik.isValid && formik.dirty)}
+      >
         Create Accout
       </button>
     </form>
