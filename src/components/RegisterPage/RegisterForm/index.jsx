@@ -1,6 +1,7 @@
 import { useState } from "react";
 import * as Yup from "yup";
 import { useFormik } from "formik";
+import axios from "axios";
 
 export default function RegisterForm() {
   const formik = useFormik({
@@ -30,17 +31,22 @@ export default function RegisterForm() {
     },
   });
 
-  const handleSubmit = (e) => {
-    // e.preventDefault();
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const response = await axios.post('http://localhost:3000/user/register', {...formik.values});
+    console.log(axios.post('http://localhost:3000/user/register', {...formik.values}));
+    console.log(response.data);
+    console.log(response.status);
+    console.log(response.statusText);
+    // console.log(response.data);
   };
 
-  console.log(formik.values);
 
   return (
     <form
       onSubmit={handleSubmit}
       method="post"
-      action="http://localhost:3000/user/login"
+      action="/"
     >
       <section className="register-form">
         <div className="form-field">
