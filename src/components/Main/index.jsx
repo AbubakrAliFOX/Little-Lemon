@@ -6,11 +6,11 @@ import Branch from "./Branch";
 
 export default function Main() {
   return (
-    <main>
+    <>
       <Hero />
       <Specials />
       <Testimonials />
       <Branch />
-    </main>
+    </>
   );
 }

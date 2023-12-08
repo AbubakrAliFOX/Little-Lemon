@@ -76,7 +76,7 @@ export default function RegisterForm() {
             type="text"
           />{" "}
           {formik.errors.name && formik.touched.name && (
-            <span>{formik.errors.name}</span>
+            <span className="error-message">{formik.errors.name}</span>
           )}
         </div>
         <div className="form-field">
@@ -96,7 +96,7 @@ export default function RegisterForm() {
             type="password"
           />{" "}
           {formik.errors.password && formik.touched.password && (
-            <span>{formik.errors.password}</span>
+            <span className="error-message">{formik.errors.password}</span>
           )}
         </div>
         <div className="form-field">
@@ -116,7 +116,7 @@ export default function RegisterForm() {
             type="text"
           />{" "}
           {formik.errors.email && formik.touched.email && (
-            <span>{formik.errors.email}</span>
+            <span className="error-message">{formik.errors.email}</span>
           )}
         </div>
         <div className="form-field">
@@ -136,7 +136,7 @@ export default function RegisterForm() {
             type="text"
           />{" "}
           {formik.errors.address && formik.touched.address && (
-            <span>{formik.errors.address}</span>
+            <span className="error-message">{formik.errors.address}</span>
           )}
         </div>
       </section>
