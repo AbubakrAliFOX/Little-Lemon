@@ -10,7 +10,7 @@ import BookingPage from "./components/BookingPage";
 import MenuPage from "./components/MenuPage";
 import RegisterPage from "./components/RegisterPage";
 import Layout from "./components/Layout";
-
+import Profile from './components/Profile';
 
 function App() {
   return (
@@ -19,7 +19,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route path="/" element={<Main />} />
-          <Route path="/about" element={<div>Dssdad</div>} />
+          <Route path="/profile" element={<Profile />} />
           <Route path="/menu" element={<MenuPage />} />
           <Route path="/reservations" element={<BookingPage />} />
           <Route path="/login" element={<RegisterPage />} />

@@ -42,7 +42,9 @@ export default function RegisterForm() {
         });
         console.log(response.data);
         const accessToken = response?.data?.token;
-        setAuth(prev => ({...response.data, accessToken}));
+        localStorage.clear();
+        localStorage.setItem('user', JSON.stringify({...response.data, accessToken}));
+        // setAuth(prev => ());
     } catch (error) {
         console.log(error.response.data.message);
         // if (!error.response) {
@@ -57,8 +59,6 @@ export default function RegisterForm() {
     }
   };
 
-  localStorage.setItem('Testy', JSON.stringify({name: 'Hi', pwd: 'hello'}));
-  console.log(localStorage.getItem('Testy'));
 
   return (
     <form onSubmit={handleSubmit} method="post" action="/">

@@ -15,7 +15,7 @@ export default function Basket() {
           fill="black"
         />
       </svg>
-      <div className="basket-items-number">1</div>
+      <div className="basket-items-number">9</div>
     </div>
   );
 }

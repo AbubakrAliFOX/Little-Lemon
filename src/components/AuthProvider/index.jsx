@@ -3,7 +3,8 @@ import { createContext, useState } from "react";
 const AuthContext = createContext({});
 
 export const AuthProvider = ({ children }) => {
-  const userData = JSON.parse(localStorage.getItem('Testy'));
+  // localStorage.clear();
+  const userData = localStorage.getItem('user')? JSON.parse(localStorage.getItem('user')) : null;
   console.log('From auth', userData);
   const [auth, setAuth] = useState(userData);
 

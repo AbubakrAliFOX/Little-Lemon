@@ -1,0 +1,21 @@
+.order-box {
+    border: 1px solid black;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.order-header {
+    background-color: var(--color3);
+    display: flex;
+    justify-content: start;
+    padding-left: 15px;
+
+}
+
+.order-header > * {
+    margin: 10px 30px 10px 0;
+}
+
+.order-header p {
+    margin: 0;
+}
