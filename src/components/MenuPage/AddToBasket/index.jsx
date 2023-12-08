@@ -1,6 +1,13 @@
+import { useNavigate } from "react-router-dom";
+
 export default function AddToBasket() {
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    navigate('/login');
+  } 
   return (
-    <div className="Add-to-basket">
+    <div className="Add-to-basket" onClick={handleClick}>
       <a href="#" id="add-to-basket-link">
         <svg
           xmlns="http://www.w3.org/2000/svg"

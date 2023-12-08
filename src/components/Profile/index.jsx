@@ -1,4 +1,5 @@
 import Order from './Order';
+import { ToastContainer, toast } from "react-toastify";
 
 export default function Profile() {
   const userData = JSON.parse(localStorage.getItem("user"));
@@ -22,6 +23,7 @@ export default function Profile() {
       <section className="orders">
         <Order />
       </section>
+      <ToastContainer />
     </article>
   );
 }
