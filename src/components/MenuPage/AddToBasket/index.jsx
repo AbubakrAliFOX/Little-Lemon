@@ -2,9 +2,13 @@ import { useNavigate } from "react-router-dom";
 
 export default function AddToBasket() {
   const navigate = useNavigate();
-
+  const userData = JSON.parse(localStorage.getItem('user'));
   const handleClick = () => {
-    navigate('/login');
+    if (userData?.name) {
+      alert('Signed In')
+    } else {
+      navigate("/login", { state: { showToast: "value", toastMsg: 'You have to be logged in' } });
+    }
   } 
   return (
     <div className="Add-to-basket" onClick={handleClick}>

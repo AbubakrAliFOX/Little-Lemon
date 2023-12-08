@@ -1,9 +1,29 @@
-import Order from './Order';
+import { useEffect } from "react";
+import Order from "./Order";
 import { ToastContainer, toast } from "react-toastify";
+import { useLocation } from "react-router-dom";
 
 export default function Profile() {
   const userData = JSON.parse(localStorage.getItem("user"));
   const firstName = userData.name.split(" ")[0];
+
+  let location = useLocation();
+  useEffect(() => {
+    if (location.state.showToast) {
+      toast.success("Successfully Signed Up", {
+        position: "top-center",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "colored",
+        toastId: 'Some Id'
+      });
+    }
+  }, []);
+
   return (
     <article className="page-padding">
       <h1 className="form-title">Welcome Back, {firstName}.</h1>
@@ -23,7 +43,6 @@ export default function Profile() {
       <section className="orders">
         <Order />
       </section>
-      <ToastContainer />
     </article>
   );
 }

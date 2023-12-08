@@ -11,6 +11,7 @@ import MenuPage from "./components/MenuPage";
 import RegisterPage from "./components/RegisterPage";
 import Layout from "./components/Layout";
 import Profile from './components/Profile';
+import { ToastContainer } from "react-toastify";
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
         </Route>
       </Routes>
       <Footer />
+      <ToastContainer />
     </>
   );
 }

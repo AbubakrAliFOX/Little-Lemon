@@ -5,17 +5,38 @@ import { useFormik } from "formik";
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { redirect, useNavigate  } from "react-router-dom";
+import { useLocation, useNavigate  } from "react-router-dom";
 
 export default function RegisterForm() {
   const { setAuth } = useAuth();
+
+  // For redirecting after successful sign up
   const [redirect, setRedirect] = useState(false); 
   const navigate = useNavigate();
   useEffect(() => {
     if(redirect) {
-      navigate('/profile');
+      navigate("/profile", { state: { showToast: true } });
     }
   }, [redirect])
+
+  // For showing toaster when redirected from menu 
+
+  const location = useLocation();
+  useEffect(() =>{
+    if(location?.state?.showToast) {
+      toast.error(location.state.toastMsg, {
+        position: "top-center",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "colored",
+        toastId: 'Location-toast'
+      });
+    }
+  }, [])
   const formik = useFormik({
     initialValues: {
       name: "",
@@ -57,18 +78,6 @@ export default function RegisterForm() {
         JSON.stringify({ ...response.data, accessToken })
       );
       setRedirect(prev => true);
-      toast.success('🦄 Wow so easy!', {
-        position: "top-center",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "colored",
-        });
-      console.log('After Redirect');
-
     } catch (error) {
       console.log(error?.response?.data?.message);
       toast.error(error?.response?.data?.message, {
@@ -188,7 +197,6 @@ export default function RegisterForm() {
           Create Accout
         </button>
       </form>
-      <ToastContainer />
     </>
   );
 }
