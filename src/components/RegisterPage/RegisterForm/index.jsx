@@ -3,7 +3,8 @@ import useAuth from '../../hooks/useAuth';
 import * as Yup from "yup";
 import { useFormik } from "formik";
 import axios from "axios";
-import { json } from "react-router-dom";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export default function RegisterForm() {
   const { setAuth } = useAuth();
@@ -47,6 +48,16 @@ export default function RegisterForm() {
         // setAuth(prev => ());
     } catch (error) {
         console.log(error.response.data.message);
+        toast.error(error.response.data.message, {
+          position: "top-center",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "colored",
+          });
         // if (!error.response) {
         //     let errMsg = 'No server response';
         // } else if (error.response?.status === 400) {
@@ -61,7 +72,7 @@ export default function RegisterForm() {
 
 
   return (
-    <form onSubmit={handleSubmit} method="post" action="/">
+    <><form onSubmit={handleSubmit} method="post" action="/">
       <section className="register-form">
         <div className="form-field">
           <label className="form-control" htmlFor="name">
@@ -152,5 +163,6 @@ export default function RegisterForm() {
         Create Accout
       </button>
     </form>
+    <ToastContainer /></>
   );
 }
