@@ -1,9 +1,11 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
+import AuthContext from "../../AuthProvider";
 import * as Yup from "yup";
 import { useFormik } from "formik";
 import axios from "axios";
 
 export default function RegisterForm() {
+  const { setAuth } = useContext(AuthContext);
   const formik = useFormik({
     initialValues: {
       name: "",
@@ -33,21 +35,29 @@ export default function RegisterForm() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const response = await axios.post('http://localhost:3000/user/register', {...formik.values});
-    console.log(axios.post('http://localhost:3000/user/register', {...formik.values}));
-    console.log(response.data);
-    console.log(response.status);
-    console.log(response.statusText);
-    // console.log(response.data);
+    try {
+        const response = await axios.post("http://localhost:3000/user/register", {
+          ...formik.values,
+        });
+        console.log(response.data);
+        const accessToken = response?.data?.token;
+        setAuth(prev => ({...response.data, accessToken}));
+    } catch (error) {
+        console.log(error.response.data.message);
+        // if (!error.response) {
+        //     let errMsg = 'No server response';
+        // } else if (error.response?.status === 400) {
+        //     let errMsg = 'Missing Username or Password';
+        // } else if (error.response?.status === 401) {
+        //     let errMsg = 'Unauthorized';
+        // } else {
+        //     let errMsg = 'Login Failed!'
+        // }
+    }
   };
 
-
   return (
-    <form
-      onSubmit={handleSubmit}
-      method="post"
-      action="/"
-    >
+    <form onSubmit={handleSubmit} method="post" action="/">
       <section className="register-form">
         <div className="form-field">
           <label className="form-control" htmlFor="name">
