@@ -3,9 +3,10 @@ import useAuth from '../../hooks/useAuth';
 import * as Yup from "yup";
 import { useFormik } from "formik";
 import axios from "axios";
+import { json } from "react-router-dom";
 
 export default function RegisterForm() {
-  const { setAuth } = useAuth;
+  const { setAuth } = useAuth();
   const formik = useFormik({
     initialValues: {
       name: "",
@@ -56,8 +57,8 @@ export default function RegisterForm() {
     }
   };
 
-  // localStorage.setItem('Test', 'Test value');
-  // console.log(localStorage.getItem('Test'));
+  localStorage.setItem('Testy', JSON.stringify({name: 'Hi', pwd: 'hello'}));
+  console.log(localStorage.getItem('Testy'));
 
   return (
     <form onSubmit={handleSubmit} method="post" action="/">

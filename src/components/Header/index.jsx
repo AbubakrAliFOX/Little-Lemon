@@ -11,8 +11,8 @@ export default function Header() {
     setIsOpen((prev) => !prev);
   };
 
-  const isAuth = auth?.user ? 'Profile' : 'Login';
-  const isAuthLink = auth?.user ? '/profile': '/login';
+  const isAuth = auth?.name ? 'Profile' : 'Login';
+  const isAuthLink = auth?.name ? '/profile': '/login';
 
   return (
     <header className="page-padding">
