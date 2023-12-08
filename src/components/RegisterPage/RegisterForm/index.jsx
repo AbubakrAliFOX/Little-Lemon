@@ -1,11 +1,11 @@
-import { useState, useContext } from "react";
-import AuthContext from "../../AuthProvider";
+import { useState } from "react";
+import useAuth from '../../hooks/useAuth';
 import * as Yup from "yup";
 import { useFormik } from "formik";
 import axios from "axios";
 
 export default function RegisterForm() {
-  const { setAuth } = useContext(AuthContext);
+  const { setAuth } = useAuth;
   const formik = useFormik({
     initialValues: {
       name: "",
@@ -55,6 +55,9 @@ export default function RegisterForm() {
         // }
     }
   };
+
+  // localStorage.setItem('Test', 'Test value');
+  // console.log(localStorage.getItem('Test'));
 
   return (
     <form onSubmit={handleSubmit} method="post" action="/">

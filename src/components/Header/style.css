@@ -33,6 +33,11 @@ ul {
     margin: 0;
 }
 
+header ul {
+    display: flex;
+    align-items: center;
+}
+
 li {
     font-family: 'Karla', sans-serif;
     font-size: 20px;
@@ -45,6 +50,6 @@ header li, header nav {
 }
 
 
-header svg {
+header .burger {
     display: none;
 }

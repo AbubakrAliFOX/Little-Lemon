@@ -11,6 +11,7 @@ import MenuPage from "./components/MenuPage";
 import RegisterPage from "./components/RegisterPage";
 import Layout from "./components/Layout";
 
+
 function App() {
   return (
     <>
