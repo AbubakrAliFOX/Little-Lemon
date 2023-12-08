@@ -1,0 +1,15 @@
+.item {
+    display: flex;
+    margin: 15px 0;
+    padding-left: 15px;
+    text-align: center;
+    align-items: center;
+}
+
+.item > * {
+   width: 35%;
+}
+
+.item-amount, .item-name {
+    font-size: 22px;
+}
