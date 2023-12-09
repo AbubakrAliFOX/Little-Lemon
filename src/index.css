@@ -119,6 +119,7 @@ body {
 
   header .burger {
     display: inline-block;
+    cursor: pointer;
   }
 
   header {

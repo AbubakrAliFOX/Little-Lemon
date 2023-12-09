@@ -9,7 +9,8 @@ export default function Profile() {
 
   let location = useLocation();
   useEffect(() => {
-    if (location.state.showToast) {
+    if (location?.state?.showToast) {
+        console.log(location);
       toast.success("Successfully Signed Up", {
         position: "top-center",
         autoClose: 5000,

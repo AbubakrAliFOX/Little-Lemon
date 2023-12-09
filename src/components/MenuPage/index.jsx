@@ -81,9 +81,9 @@ export default function MenuPage() {
           ))}
         {dishes
           .filter((el) => el.tag === tag)
-          .map((dish) => (
+          .map((dish, idx) => (
             <MenuItem
-              key={dish.name}
+              key={idx}
               imgUrl={dish.imageUrl}
               name={dish.name}
               price={dish.price}

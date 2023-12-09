@@ -1,8 +1,8 @@
 import AddToBasket from "../AddToBasket";
 
-export default function MenuItem({ imgUrl, name, price, key }) {
+export default function MenuItem({ imgUrl, name, price }) {
   return (
-    <figure key={key} className="card">
+    <figure className="card">
       <img className="dish-image" src={imgUrl} alt="Dish Image" />
       <div className="card-body">
         <div

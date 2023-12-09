@@ -60,6 +60,7 @@
   text-align: center;
   margin: auto;
   border-radius: 16px;
+  cursor: pointer;
 }
 
 .Add-to-basket:hover {

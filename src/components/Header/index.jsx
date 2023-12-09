@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./style.css";
 import { Link } from "react-router-dom";
 import Basket from "../Basket";
@@ -6,13 +6,20 @@ import useAuth from "../hooks/useAuth";
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(true);
-  const {auth, setAuth} = useAuth();
   const handleClick = (e) => {
     setIsOpen((prev) => !prev);
   };
 
-  const isAuth = auth?.name ? 'Profile' : 'Login';
-  const isAuthLink = auth?.name ? '/profile': '/login';
+  // For displaying profile in navbar if user is authenticated
+  const { auth } = useAuth();
+  const [isLogged, setIsLogged] = useState(false); 
+  useEffect(() => {
+  console.log('from header', auth);
+
+    if (auth) {
+      setIsLogged(prev => true);
+    }
+  }, [auth]);
 
   return (
     <header className="page-padding">
@@ -59,8 +66,11 @@ export default function Header() {
             </Link>
           </li>
           <li>
-            <Link onClick={handleClick} to={isAuthLink}>
-              {isAuth}
+            <Link
+              onClick={handleClick}
+              to={isLogged ? '/profile' : "/login"}
+            >
+              {isLogged ? 'Profile' : "Login"}
             </Link>
           </li>
           <li>

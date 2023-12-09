@@ -3,13 +3,12 @@ import useAuth from "../../hooks/useAuth";
 import * as Yup from "yup";
 import { useFormik } from "formik";
 import axios from "axios";
-import { ToastContainer, toast } from "react-toastify";
+import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useLocation, useNavigate  } from "react-router-dom";
 
 export default function RegisterForm() {
   const { setAuth } = useAuth();
-
   // For redirecting after successful sign up
   const [redirect, setRedirect] = useState(false); 
   const navigate = useNavigate();
@@ -77,6 +76,8 @@ export default function RegisterForm() {
         "user",
         JSON.stringify({ ...response.data, accessToken })
       );
+      // For changing login / profile in navbar
+      setAuth(prev => ({...response.data, accessToken}));
       setRedirect(prev => true);
     } catch (error) {
       console.log(error?.response?.data?.message);

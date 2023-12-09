@@ -7,12 +7,12 @@ export default function AddToBasket() {
     if (userData?.name) {
       alert('Signed In')
     } else {
-      navigate("/login", { state: { showToast: "value", toastMsg: 'You have to be logged in' } });
+      navigate("/login", { state: { showToast: "value", toastMsg: 'You have to be logged in!' } });
     }
   } 
   return (
     <div className="Add-to-basket" onClick={handleClick}>
-      <a href="#" id="add-to-basket-link">
+      <a id="add-to-basket-link">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="35"
