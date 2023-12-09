@@ -56,18 +56,17 @@ export default function LogInForm() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post("http://localhost:3000/user/register", {
+      const response = await axios.post("http://localhost:3000/user/login", {
         ...formik.values,
       });
       console.log(response.data);
-      const accessToken = response?.data?.token;
       localStorage.clear();
       localStorage.setItem(
         "user",
-        JSON.stringify({ ...response.data, accessToken })
+        JSON.stringify({ ...response.data })
       );
       // For changing login / profile in navbar
-      setAuth((prev) => ({ ...response.data, accessToken }));
+      setAuth((prev) => ({ ...response.data }));
       setRedirect((prev) => true);
     } catch (error) {
       console.log(error?.response?.data?.message);
