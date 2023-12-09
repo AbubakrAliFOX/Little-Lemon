@@ -9,6 +9,7 @@
   --color4: #ee9972;
   --pagePadding: 200px;
   --pageSpacing: 35px;
+  --form-element-width: 60%;
 }
 
 body {
@@ -78,6 +79,9 @@ body {
   .menu-page ul {
     /* font-size: 20px; */
     justify-content: start;
+  }
+  :root {
+    --form-element-width: 70%;
   }
 }
 
@@ -232,6 +236,10 @@ body {
     max-height: 100%;
     height: auto;
   }
+
+  :root {
+    --form-element-width: 80%;
+  }
 }
 
 @media (width <= 768px) and (width >= 480px) {
@@ -243,6 +251,12 @@ body {
 @media (width <= 768px) and (width >= 480px) {
   .card {
     width: 70%;
+  }
+}
+
+@media (width < 480px) {
+  :root {
+    --form-element-width: 95%;
   }
 }
 

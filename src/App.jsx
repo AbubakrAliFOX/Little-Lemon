@@ -8,6 +8,7 @@ import Footer from "./components/Footer";
 import ErrorPage from "./components/ErrorPage";
 import BookingPage from "./components/BookingPage";
 import MenuPage from "./components/MenuPage";
+import RegisterPage from "./components/RegisterPage";
 import LogInPage from './components/LogInPage';
 import Layout from "./components/Layout";
 import Profile from './components/Profile';
@@ -24,6 +25,7 @@ function App() {
           <Route path="/menu" element={<MenuPage />} />
           <Route path="/reservations" element={<BookingPage />} />
           <Route path="/login" element={<LogInPage />} />
+          <Route path="/signup" element={<RegisterPage />} />
           <Route path="*" element={<ErrorPage />} />
         </Route>
       </Routes>

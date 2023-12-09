@@ -132,7 +132,7 @@ export default function LogInForm() {
           </div>
         </section>
         <button
-          className="submit-button"
+          className="submit-button submit-form-button"
           type="submit"
           disabled={!(formik.isValid && formik.dirty)}
         >
