@@ -240,6 +240,12 @@ body {
   :root {
     --form-element-width: 80%;
   }
+
+
+  .dropdown-container {
+    left: 0;
+    transform: translatex(0);
+  }
 }
 
 @media (width <= 768px) and (width >= 480px) {
@@ -260,6 +266,6 @@ body {
   }
 }
 
-* {
-  /* outline: 1px solid limegreen !important; */
-}
+/* * {
+  outline: 1px solid limegreen !important;
+} */

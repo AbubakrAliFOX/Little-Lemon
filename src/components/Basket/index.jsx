@@ -1,8 +1,9 @@
+import { Link } from "react-router-dom";
 import "./style.css";
 
 export default function Basket() {
   return (
-    <div className="basket">
+    <Link className="basket">
       <svg
         width="45"
         height="45"
@@ -16,6 +17,6 @@ export default function Basket() {
         />
       </svg>
       <div className="basket-items-number">9</div>
-    </div>
+    </Link>
   );
 }
