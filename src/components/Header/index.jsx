@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import "./style.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Basket from "../Basket";
 import useAuth from "../hooks/useAuth";
 
@@ -11,15 +11,32 @@ export default function Header() {
   };
 
   // For displaying profile in navbar if user is authenticated
-  const { auth } = useAuth();
-  const [isLogged, setIsLogged] = useState(false); 
+  const { auth, setAuth } = useAuth();
+  const [isLogged, setIsLogged] = useState(false);
   useEffect(() => {
-  console.log('from header', auth);
+    console.log("from header", auth);
 
     if (auth) {
-      setIsLogged(prev => true);
+      setIsLogged((prev) => true);
     }
   }, [auth]);
+
+  // for logging out
+  const [redirect, setRedirect] = useState(false);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (redirect) {
+      navigate("/", { state: { showToast: true, toastMsg: "Goodbye" } });
+      setIsLogged((prev) => false);
+      setAuth((prev) => null);
+      localStorage.clear();
+    }
+  }, [redirect]);
+
+  const logout = () => {
+    setRedirect((prev) => true);
+  };
 
   return (
     <header className="page-padding">
@@ -60,18 +77,21 @@ export default function Header() {
               Reservations
             </Link>
           </li>
-          <li>
+          <li className="dropdown-content">
             <Link onClick={handleClick} to="/order">
               Order Online
             </Link>
           </li>
-          <li>
-            <Link
-              onClick={handleClick}
-              to={isLogged ? '/profile' : "/login"}
-            >
-              {isLogged ? 'Profile' : "Login"}
+          <li className="dropdown-content">
+            <Link onClick={handleClick} to={isLogged ? null : "/login"}>
+              {isLogged ? "Profile" : "Login"}
             </Link>
+            {isLogged && (
+              <ul className="dropdown-container">
+                <Link to="/profile">My Account</Link>
+                <Link onClick={logout}>Logout</Link>
+              </ul>
+            )}
           </li>
           <li>
             <Link onClick={handleClick} to="/login">

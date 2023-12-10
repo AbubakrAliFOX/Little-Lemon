@@ -55,7 +55,6 @@ export default function BookingForm() {
             setFormData={setFormData}
           />
         </div>
-      </section>
       <button
         className="submit-button"
         type="submit"
@@ -70,6 +69,7 @@ export default function BookingForm() {
       >
         Reserve a table
       </button>
+      </section>
     </form>
   );
 }

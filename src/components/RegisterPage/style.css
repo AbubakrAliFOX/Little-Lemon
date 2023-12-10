@@ -24,7 +24,7 @@
   margin-bottom: 10px;
 }
 
-.form-field {
+.register-box .form-field {
   margin: 20px auto;
   width: var(--form-element-width);
 }
