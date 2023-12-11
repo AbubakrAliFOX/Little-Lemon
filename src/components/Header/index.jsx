@@ -1,15 +1,16 @@
 import { useEffect, useState } from "react";
+import axios from "axios";
 import "./style.css";
 import { Link, useNavigate } from "react-router-dom";
 import Basket from "../Basket";
-import BasketItem from '../BasketItem';
+import BasketItem from "../BasketItem";
 import useAuth from "../hooks/useAuth";
 import useBasket from "../hooks/useBasket";
 
 export default function Header() {
   // localStorage.setItem('basket', JSON.stringify({Basket: '123'}));
   const [isOpen, setIsOpen] = useState(true);
-  const {basket, setBasket} = useBasket();
+  const { basket, setBasket } = useBasket();
   const handleClick = (e) => {
     // if(e.target.id === 'plus' || e.target.id === 'minus' || e.target.id === 'remove') {
     //   if (e.target.id === 'plus') {
@@ -39,7 +40,7 @@ export default function Header() {
       navigate("/", { state: { showToast: true, toastMsg: "Goodbye" } });
       setIsLogged((prev) => false);
       setAuth((prev) => null);
-      localStorage.removeItem('user');
+      localStorage.removeItem("user");
     }
   }, [redirect]);
 
@@ -47,12 +48,24 @@ export default function Header() {
     setRedirect((prev) => true);
   };
 
-
-  // For basket items
-
-  // useEffect(() => {
-  //   // if 
-  // }, [basket])
+  // For Submitting order
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await axios.post(
+        "http://localhost:3000/user/order",
+        basket,
+        {
+          headers: {
+            Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NTc0ODNjYWM2YWY3N2QyNmJmMDgwM2UiLCJpYXQiOjE3MDIyNzYwNTYsImV4cCI6MTcwMjQ0ODg1Nn0.yNkNSpL1uC5_YqMTdhuViRzp0_CtbLSJh0DvazQkMcI`
+          },
+        }
+      );
+      console.log(response.data);
+    } catch (err) {
+      console.log(err);
+    }
+  };
 
   return (
     <header className="page-padding">
@@ -113,9 +126,26 @@ export default function Header() {
             <li className="dropdown-content">
               <Basket basket={basket} />
               <ul className="dropdown-container dropdown-basket">
-              {basket?.length > 0 ? (basket.map(el => <BasketItem setBasket={setBasket} name={el.name} qty={el.qty}/>)) : (<li>No items in the basket</li>)}
-                {/* <BasketItem name={'Shawarma'} qty="3"/>
-                <BasketItem name={'Soda'} qty="3"/> */}
+                {basket?.length > 0 ? (
+                  basket.map((el) => (
+                    <BasketItem
+                      setBasket={setBasket}
+                      price={el.price}
+                      name={el.name}
+                      qty={el.qty}
+                    />
+                  ))
+                ) : (
+                  <li>No items in the basket</li>
+                )}
+                {basket?.length > 0 ? (
+                  <form onSubmit={handleSubmit}>
+                    <input type="hidden" name="orderItems" value={basket} />
+                    <button className="order-button" type="submit">
+                      Order Now
+                    </button>
+                  </form>
+                ) : null}
               </ul>
             </li>
           )}
