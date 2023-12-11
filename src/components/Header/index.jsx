@@ -77,6 +77,17 @@ export default function Header() {
       console.log(response.data);
     } catch (err) {
       console.log(err);
+      toast.error("An error occured", {
+        position: "top-center",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "colored",
+        toastId: "Some Id",
+      });
     }
   };
 

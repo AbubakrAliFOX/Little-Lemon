@@ -8,6 +8,7 @@
 .order-header {
     background-color: var(--color3);
     display: flex;
+    flex-wrap: wrap;
     justify-content: start;
     padding-left: 15px;
 

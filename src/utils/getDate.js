@@ -1,7 +1,7 @@
 export const getDate = () => {
   const currentDate = new Date()
     .toLocaleString("en-US", { timeZone: "UTC" })
-    .slice(0, 9)
+    .slice(0, 10)
     .split("/");
   const day = currentDate[1];
   const month = currentDate[0];
@@ -32,3 +32,8 @@ export const getDate = () => {
     days: daysArray,
   };
 };
+
+console.log(new Date()
+    .toLocaleString("en-US", { timeZone: "UTC" })
+    .slice(0, 10)
+    .split("/"));

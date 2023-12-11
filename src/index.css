@@ -264,6 +264,10 @@ body {
   :root {
     --form-element-width: 95%;
   }
+
+  .item-amount, .item-name {
+    font-size: 16px;
+  }
 }
 
 /* * {

@@ -8,6 +8,7 @@
 
 .item > * {
    width: 35%;
+   margin: 0 5px;
 }
 
 .item-amount, .item-name {
