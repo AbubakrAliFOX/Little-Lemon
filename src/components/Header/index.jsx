@@ -111,9 +111,9 @@ export default function Header() {
           </li>
           {isLogged && (
             <li className="dropdown-content">
-              <Basket />
+              <Basket basket={basket} />
               <ul className="dropdown-container dropdown-basket">
-              {basket.length > 0 ? (basket.map(el => <BasketItem name={el.name} qty={el.qty}/>)) : (<li>No items in the basket</li>)}
+              {basket?.length > 0 ? (basket.map(el => <BasketItem setBasket={setBasket} name={el.name} qty={el.qty}/>)) : (<li>No items in the basket</li>)}
                 {/* <BasketItem name={'Shawarma'} qty="3"/>
                 <BasketItem name={'Soda'} qty="3"/> */}
               </ul>

@@ -1,7 +1,27 @@
-export default function BasketItem({name, price, qty}) {
+export default function BasketItem({ name, price, qty, setBasket }) {
   const handleClick = (e) => {
-    
-  }
+    setBasket((prev) => {
+      let currEl = prev.find((el) => el.name === name);
+      let rest = prev.filter((el) => el.name !== name);
+      let operation = e.target.id;
+      if (operation === "plus") {
+        return [...rest, { name: name, price: price, qty: currEl.qty + 1 }];
+      }
+      if (operation === "minus") {
+        if(currEl.qty > 1) {
+          return [...rest, { name: name, price: price, qty: currEl.qty - 1 }];
+        }
+        else {
+          return [...prev];
+        }
+      }
+      if (operation === "remove") {
+        console.log('removed');
+        return [...rest];
+      }
+      return [...prev];
+    });
+  };
 
   return (
     <div className="basket-item">

@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import "./style.css";
 
-export default function Basket() {
+export default function Basket({basket}) {
   return (
     <Link className="basket">
       <svg
@@ -16,7 +16,7 @@ export default function Basket() {
           fill="black"
         />
       </svg>
-      <div className="basket-items-number">9</div>
+      <div className="basket-items-number">{basket.length}</div>
     </Link>
   );
 }

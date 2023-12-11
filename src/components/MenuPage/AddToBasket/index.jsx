@@ -7,7 +7,15 @@ export default function AddToBasket({name, price}) {
   const {basket, setBasket} = useBasket();
   const handleClick = () => {
     if (userData?.name) {
-      setBasket(prev => [...prev, {name, price, qty:1}]);
+      setBasket(prev => {
+        if(prev?.find(el => el.name === name)) {
+          let currEl = prev.find(el => el.name === name)
+          console.log(true);
+          return [...prev.filter(el => el.name !== name), {name, price, qty: currEl.qty + 1}]
+        } else {
+          return [...prev, {name, price, qty:1}]
+        }
+      });
     } else {
       navigate("/login", { state: { showToast: "value", toastMsg: 'You have to be logged in!' } });
     }
