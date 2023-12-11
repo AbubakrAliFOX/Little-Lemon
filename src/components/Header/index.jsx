@@ -6,6 +6,7 @@ import Basket from "../Basket";
 import BasketItem from "../BasketItem";
 import useAuth from "../hooks/useAuth";
 import useBasket from "../hooks/useBasket";
+import { toast } from "react-toastify";
 
 export default function Header() {
   // localStorage.setItem('basket', JSON.stringify({Basket: '123'}));
@@ -61,6 +62,18 @@ export default function Header() {
           },
         }
       );
+      setBasket(prev => []);
+      toast.success("You order has been successfully placed", {
+        position: "top-center",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "colored",
+        toastId: "Some Id",
+      });
       console.log(response.data);
     } catch (err) {
       console.log(err);
