@@ -1,15 +1,18 @@
 import "./style.css";
+import { dishes } from "../../../../utils/dishedDB";
 
-export default function Item() {
+export default function Item({name, qty, price}) {
+  const imageUrl = dishes.filter((el) => el.name === name)[0].imageUrl;
+  console.log('Image url',imageUrl);
   return (
     <div className="item">
       <img
         className="item-img"
-        src="https://res.cloudinary.com/dewpck9nt/image/upload/v1701674769/LittleLemon/mdkkatumak7gwashvfhs.webp"
+        src={imageUrl}
         alt="Order Image"
       />
-      <h3 className="item-name">Stuffed Vine Leaves</h3>
-      <p className="item-amount">4 pcs</p>
+      <h3 className="item-name">{name}</h3>
+      <p className="item-amount">{qty} pcs</p>
     </div>
   );
 }
