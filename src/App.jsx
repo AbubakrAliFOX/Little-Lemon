@@ -29,8 +29,8 @@ function App() {
           <Route path="*" element={<ErrorPage />} />
         </Route>
       </Routes>
-      <Footer />
       <ToastContainer />
+      <Footer />
     </>
   );
 }

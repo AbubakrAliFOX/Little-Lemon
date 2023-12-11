@@ -114,11 +114,21 @@ display: none;
     align-items: center;
     min-height: 50px;
     background-color: var(--color3);
+    border-bottom: 3px solid black;
+    padding: 10px 0;
 }
+
+.basket-item-name {
+    width: 48%;
+    /* font-size: 18px; */
+    font-weight: bold;
+}
+
 
 .basket-increament, .basket-remove {
     display: flex;
     align-items: center;
+    min-width: 10%;
 }
 
 .basket-increament span {

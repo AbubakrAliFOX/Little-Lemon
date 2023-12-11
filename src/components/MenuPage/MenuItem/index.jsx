@@ -16,7 +16,7 @@ export default function MenuItem({ imgUrl, name, price }) {
           <p className="dish-price">${price}</p>
         </div>
         {/* <p className="dish-description">{description}</p> */}
-        <AddToBasket />
+        <AddToBasket name={name} price={price} />
       </div>
     </figure>
   );
