@@ -45,6 +45,16 @@ export default function Header() {
     }
   }, [redirect]);
 
+  // for redirecting after ordering
+  const [basketRedirect, setBasketRedirect] = useState(false);
+
+  useEffect(() => {
+    if (basketRedirect) {
+      navigate("/profile");
+      setBasketRedirect((prev) => false)
+    }
+  }, [basketRedirect]);
+
   const logout = () => {
     setRedirect((prev) => true);
   };
@@ -58,12 +68,12 @@ export default function Header() {
         basket,
         {
           headers: {
-            Authorization: `Bearer ${auth.token}`
+            Authorization: `Bearer ${auth.token}`,
           },
         }
       );
-      setBasket(prev => []);
-      toast.success("You order has been successfully placed", {
+      setBasket((prev) => []);
+      toast.success("Success! Your order is in. Our chefs are on it", {
         position: "top-center",
         autoClose: 5000,
         hideProgressBar: false,
@@ -74,7 +84,7 @@ export default function Header() {
         theme: "colored",
         toastId: "Some Id",
       });
-      console.log(response.data);
+      setBasketRedirect((prev) => true);
     } catch (err) {
       console.log(err);
       toast.error("An error occured", {

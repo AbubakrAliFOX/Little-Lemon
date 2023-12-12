@@ -1,10 +1,10 @@
 import Select from "./Select";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./style.css";
 import axios from "axios";
 import { toast } from "react-toastify";
-import useAuth from '../../hooks/useAuth';
-
+import useAuth from "../../hooks/useAuth";
+import { useNavigate } from "react-router-dom";
 
 export default function BookingForm() {
   const [availableTimes, setAvailableTimes] = useState([]);
@@ -16,18 +16,28 @@ export default function BookingForm() {
   });
   const [timeDisplay, setTimeDisplay] = useState("");
 
-  const {auth} = useAuth();
+  const { auth } = useAuth();
+
+  // for redirecting after making reservation
+  const [reservationRedirect, setReservationRedirect] = useState(false);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (reservationRedirect) {
+      navigate("/profile");
+      setReservationRedirect((prev) => false)
+    }
+  }, [reservationRedirect]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
     try {
-      axios
-      .post("http://localhost:3000/user/reservations", formData, {
+      axios.post("http://localhost:3000/user/reservations", formData, {
         headers: {
           Authorization: `Bearer ${auth.token}`,
         },
       });
-      toast.success("You reservation has been successfully placed", {
+      toast.success("Reserved! Your table is set. See you soon", {
         position: "top-center",
         autoClose: 5000,
         hideProgressBar: false,
@@ -38,13 +48,13 @@ export default function BookingForm() {
         theme: "colored",
         toastId: "Some Id",
       });
-      setFormData(prev => ({
+      setFormData((prev) => ({
         Date: "",
         Time: "",
         Guests: "",
         Occasion: "",
       }));
-      
+      setReservationRedirect((prev) => true);
     } catch (error) {
       toast.error("An error occured", {
         position: "top-center",
@@ -58,7 +68,7 @@ export default function BookingForm() {
         toastId: "Some Id",
       });
     }
-  }
+  };
 
   return (
     <form onSubmit={handleSubmit} method="post" action="/">
@@ -103,20 +113,20 @@ export default function BookingForm() {
             setFormData={setFormData}
           />
         </div>
-      <button
-        className="submit-button"
-        type="submit"
-        disabled={
-          !(
-            formData.Date &&
-            formData.Time &&
-            formData.Guests &&
-            formData.Occasion
-          )
-        }
-      >
-        Reserve a table
-      </button>
+        <button
+          className="submit-button"
+          type="submit"
+          disabled={
+            !(
+              formData.Date &&
+              formData.Time &&
+              formData.Guests &&
+              formData.Occasion
+            )
+          }
+        >
+          Reserve a table
+        </button>
       </section>
     </form>
   );
