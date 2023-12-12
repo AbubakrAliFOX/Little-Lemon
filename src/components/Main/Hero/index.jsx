@@ -16,7 +16,7 @@ export default function Hero() {
         <section className="img-container">
           <img
             className="main-img"
-            src="/restaurant-chef-B.webp"
+            src="https://res.cloudinary.com/dewpck9nt/image/upload/v1702359962/LittleLemon/an2ofhe7fuskq2e9awzl.webp"
             alt="Main Photo"
           />
         </section>

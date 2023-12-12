@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 export default function Card({ name, imgSource, price, description }) {
   return (
     <figure className="card">
@@ -8,7 +10,7 @@ export default function Card({ name, imgSource, price, description }) {
       <p className="dish-price">{price}</p>
       </div>
       <p className="dish-description">{description}</p>
-      <a className="order-link" href="#">
+      <Link className="order-link" to="/menu">
         <span>Order a delivery</span>
         <svg
           width="17"
@@ -30,7 +32,7 @@ export default function Card({ name, imgSource, price, description }) {
             fill="black"
           />
         </svg>
-      </a>
+      </Link>
       </div>
     </figure>
   );

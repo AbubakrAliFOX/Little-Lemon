@@ -131,11 +131,6 @@ export default function Header() {
             </Link>
           </li>
           <li className="dropdown-content">
-            <Link onClick={handleClick} to="/order">
-              Order Online
-            </Link>
-          </li>
-          <li className="dropdown-content">
             <Link to={isLogged ? null : "/login"}>
               {isLogged ? "Profile" : "Login"}
             </Link>
