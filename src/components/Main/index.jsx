@@ -1,9 +1,9 @@
 import "./style.css";
-import { useEffect } from "react";
-import Hero from "./Hero";
-import Specials from "./Specials";
-import Testimonials from "./Testimonials";
-import Branch from "./Branch";
+import { useEffect, lazy } from "react";
+const Hero = lazy(() => import('./Hero'));
+const Specials = lazy(() => import('./Specials'));
+const Testimonials = lazy(() => import('./Testimonials'));
+const Branch = lazy(() => import('./Branch'));
 import {toast} from 'react-toastify'
 import { useLocation } from "react-router-dom";
 

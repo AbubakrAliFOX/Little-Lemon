@@ -1,6 +1,10 @@
+import { Suspense } from "react";
+import {Loader} from "../Loader";
+
 export default function Footer() {
   return (
-    <footer className="page-padding">
+    <Suspense fallback={<Loader />}>
+      <footer className="page-padding">
       <section className="footer-logo">
         <img src="/footer-logo.webp" alt="Footer Logo" />
       </section>
@@ -35,6 +39,7 @@ export default function Footer() {
         </ul>
       </section>
     </footer>
+    </Suspense>
   );
 }
 

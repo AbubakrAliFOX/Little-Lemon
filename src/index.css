@@ -10,6 +10,13 @@
   --pagePadding: 200px;
   --pageSpacing: 35px;
   --form-element-width: 60%;
+  
+}
+
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 body {
@@ -241,7 +248,6 @@ body {
     --form-element-width: 80%;
   }
 
-
   .dropdown-container {
     left: 0;
     transform: translatex(0);
@@ -269,7 +275,8 @@ body {
     --form-element-width: 95%;
   }
 
-  .item-amount, .item-name {
+  .item-amount,
+  .item-name {
     font-size: 16px;
   }
 

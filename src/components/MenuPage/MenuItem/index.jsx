@@ -1,9 +1,15 @@
 import AddToBasket from "../AddToBasket";
+import { Suspense, lazy } from "react";
+import { ImgLoader } from "../../Loader";
+const DishImage = lazy(() => import('./DishImage'));
+// import './style.css';
 
 export default function MenuItem({ imgUrl, name, price }) {
   return (
     <figure className="card">
-      <img className="dish-image" src={imgUrl} alt="Dish Image" />
+      <Suspense fallback={<ImgLoader />}>
+        <DishImage imgUrl={imgUrl} />
+      </Suspense>
       <div className="card-body">
         <div
           style={{
