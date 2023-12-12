@@ -4,6 +4,7 @@ import Order from "./Order";
 import { toast } from "react-toastify";
 import { useLocation } from "react-router-dom";
 import Reservations from "./Reservations";
+import useAuth from "../hooks/useAuth";
 
 export default function Profile() {
   const userData = JSON.parse(localStorage.getItem("user"));
@@ -12,11 +13,14 @@ export default function Profile() {
   // getting order
   const [orders, setOrders] = useState([]);
   const [reservations, setReservations] = useState([]);
+
+  const {auth} = useAuth();
+  
   useEffect(() => {
     axios
       .get("http://localhost:3000/user/order", {
         headers: {
-          Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NTc0ODNjYWM2YWY3N2QyNmJmMDgwM2UiLCJpYXQiOjE3MDIyNzYwNTYsImV4cCI6MTcwMjQ0ODg1Nn0.yNkNSpL1uC5_YqMTdhuViRzp0_CtbLSJh0DvazQkMcI`,
+          Authorization: `Bearer ${auth.token}`,
         },
       })
       .then((response) => {

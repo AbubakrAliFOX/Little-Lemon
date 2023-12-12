@@ -58,7 +58,7 @@ export default function Header() {
         basket,
         {
           headers: {
-            Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NTc0ODNjYWM2YWY3N2QyNmJmMDgwM2UiLCJpYXQiOjE3MDIyNzYwNTYsImV4cCI6MTcwMjQ0ODg1Nn0.yNkNSpL1uC5_YqMTdhuViRzp0_CtbLSJh0DvazQkMcI`
+            Authorization: `Bearer ${auth.token}`
           },
         }
       );

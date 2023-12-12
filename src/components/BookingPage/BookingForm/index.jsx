@@ -3,6 +3,7 @@ import { useState } from "react";
 import "./style.css";
 import axios from "axios";
 import { toast } from "react-toastify";
+import useAuth from '../../hooks/useAuth';
 
 
 export default function BookingForm() {
@@ -15,13 +16,15 @@ export default function BookingForm() {
   });
   const [timeDisplay, setTimeDisplay] = useState("");
 
+  const {auth} = useAuth();
+
   const handleSubmit = (e) => {
     e.preventDefault();
     try {
       axios
       .post("http://localhost:3000/user/reservations", formData, {
         headers: {
-          Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NTc0ODNjYWM2YWY3N2QyNmJmMDgwM2UiLCJpYXQiOjE3MDIyNzYwNTYsImV4cCI6MTcwMjQ0ODg1Nn0.yNkNSpL1uC5_YqMTdhuViRzp0_CtbLSJh0DvazQkMcI`,
+          Authorization: `Bearer ${auth.token}`,
         },
       });
       toast.success("You reservation has been successfully placed", {
