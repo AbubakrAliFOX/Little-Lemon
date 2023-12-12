@@ -33,7 +33,3 @@ export const getDate = () => {
   };
 };
 
-console.log(new Date()
-    .toLocaleString("en-US", { timeZone: "UTC" })
-    .slice(0, 10)
-    .split("/"));

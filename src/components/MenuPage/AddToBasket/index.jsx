@@ -10,7 +10,6 @@ export default function AddToBasket({name, price}) {
       setBasket(prev => {
         if(prev?.find(el => el.name === name)) {
           let currEl = prev.find(el => el.name === name)
-          console.log(true);
           return [...prev.filter(el => el.name !== name), {name, price, qty: currEl.qty + 1}]
         } else {
           return [...prev, {name, price, qty:1}]

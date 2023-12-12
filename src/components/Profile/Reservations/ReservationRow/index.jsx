@@ -1,5 +1,4 @@
 function ReservationRow({data, idx}) {
-    console.log('Daata is', data);
   return (
     <tr>
       <td className="numbers-td">{idx + 1}</td>

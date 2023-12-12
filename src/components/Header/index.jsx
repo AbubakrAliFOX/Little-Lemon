@@ -25,8 +25,6 @@ export default function Header() {
   const { auth, setAuth } = useAuth();
   const [isLogged, setIsLogged] = useState(false);
   useEffect(() => {
-    console.log("from header", auth);
-
     if (auth) {
       setIsLogged((prev) => true);
     }
@@ -86,7 +84,6 @@ export default function Header() {
       });
       setBasketRedirect((prev) => true);
     } catch (err) {
-      console.log(err);
       toast.error("An error occured", {
         position: "top-center",
         autoClose: 5000,

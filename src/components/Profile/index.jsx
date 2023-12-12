@@ -33,7 +33,6 @@ export default function Profile() {
   let location = useLocation();
   useEffect(() => {
     if (location?.state?.showToast) {
-      console.log(location);
       toast.success("Successfully Signed Up", {
         position: "top-center",
         autoClose: 5000,
@@ -47,7 +46,6 @@ export default function Profile() {
       });
     }
   }, []);
-  console.log('Order data issss:', orders);
   return (
     <article className="page-padding">
       <h1 className="form-title">Welcome Back, {firstName}.</h1>

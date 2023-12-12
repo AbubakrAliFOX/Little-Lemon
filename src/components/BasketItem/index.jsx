@@ -16,7 +16,6 @@ export default function BasketItem({ name, price, qty, setBasket }) {
         }
       }
       if (operation === "remove") {
-        console.log('removed');
         return [...rest];
       }
       return [...prev];
@@ -51,7 +50,7 @@ export default function BasketItem({ name, price, qty, setBasket }) {
               stroke="none"
               stroke-width="1"
               fill="none"
-              fill-rule="evenodd"
+              fillRule="evenodd"
               sketch:type="MSPage"
             >
               <g
@@ -94,7 +93,7 @@ export default function BasketItem({ name, price, qty, setBasket }) {
               stroke="none"
               stroke-width="1"
               fill="none"
-              fill-rule="evenodd"
+              fillRule="evenodd"
               sketch:type="MSPage"
             >
               <g

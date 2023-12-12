@@ -69,7 +69,6 @@ export default function RegisterForm() {
       const response = await axios.post("http://localhost:3000/user/register", {
         ...formik.values,
       });
-      console.log(response.data);
       localStorage.clear();
       localStorage.setItem(
         "user",
@@ -79,7 +78,6 @@ export default function RegisterForm() {
       setAuth(prev => ({...response.data}));
       setRedirect(prev => true);
     } catch (error) {
-      console.log(error?.response?.data?.message);
       toast.error(error?.response?.data?.message, {
         position: "top-center",
         autoClose: 5000,

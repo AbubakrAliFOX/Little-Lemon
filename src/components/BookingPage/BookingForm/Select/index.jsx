@@ -62,12 +62,8 @@ export default function Select({
     setDisplayName((prevDisplayName) => e.target.id)
     // For displaying time reset when the date is selected
     
-    // console.dir(e.target);
 };
 
-  console.log(formData);
-//   console.log(open);
-    console.log(timeDisplay);
   return (
     <div className="select-field">
       <div

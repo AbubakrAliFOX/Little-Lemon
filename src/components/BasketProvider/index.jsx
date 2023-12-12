@@ -12,7 +12,6 @@ export const BasketProvider = ({ children }) => {
         localStorage.setItem('basket', JSON.stringify([...basketData, basket]));
     }
 
-    console.log('Here is basket', basket, 'Here is basket Localstorag', basketData)
   }, [basket]);
   return (
     <BasketContext.Provider value={{ basket, setBasket }}>

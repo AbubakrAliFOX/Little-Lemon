@@ -18,7 +18,7 @@ export default function Specials() {
        <Card
           name="Shawarma"
           price="$9.99"
-          description="Tender slices of marinated chicken, slow-cooked on a vertical rotisserie. Served in warm flatbread with fresh veggies and signature tahini sauce."
+          description="Tender slices of marinated chicken, slow-cooked on a vertical rotisserie. Served in warm flatbread with fresh veggies."
     imgSource="https://res.cloudinary.com/dewpck9nt/image/upload/v1701674768/LittleLemon/b6gdurk0x4vc8rsqeuyn.webp"
        />
        <Card

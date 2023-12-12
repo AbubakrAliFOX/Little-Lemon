@@ -2,7 +2,6 @@ import "./style.css";
 import ReservationRow from "./ReservationRow";
 
 export default function Reservations({reservations}) {
-    console.log('resss', reservations);
   return (
     <table>
       <thead>

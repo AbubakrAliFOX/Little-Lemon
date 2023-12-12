@@ -3,7 +3,6 @@ import { dishes } from "../../../../utils/dishedDB";
 
 export default function Item({name, qty, price}) {
   const imageUrl = dishes.filter((el) => el.name === name)[0].imageUrl;
-  console.log('Image url',imageUrl);
   return (
     <div className="item">
       <img
