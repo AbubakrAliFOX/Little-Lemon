@@ -19,53 +19,53 @@ export default function MenuPage() {
       <nav>
         <ul>
           <li
-            className={tag === "All" && "selected-li"}
+            className={tag === "All" ? 'selected-li': undefined}
             id="All"
             onClick={handleClick}
           >
-            <a href="#">All</a>
+            <a>All</a>
           </li>
           <li
-            className={tag === "Specialties" && "selected-li"}
+            className={tag === "Specialties" ? 'selected-li': undefined}
             id="Specialties"
             onClick={handleClick}
           >
-            <a href="#">Specialties</a>
+            <a>Specialties</a>
           </li>
           <li
-            className={tag === "Salads" && "selected-li"}
+            className={tag === "Salads" ? 'selected-li': undefined}
             id="Salads"
             onClick={handleClick}
           >
-            <a href="#">Salads</a>
+            <a>Salads</a>
           </li>
           <li
-            className={tag === "Seafood" && "selected-li"}
+            className={tag === "Seafood" ? 'selected-li': undefined}
             id="Seafood"
             onClick={handleClick}
           >
-            <a href="#">Seafood</a>
+            <a>Seafood</a>
           </li>
           <li
-            className={tag === "Desserts" && "selected-li"}
+            className={tag === "Desserts" ? 'selected-li': undefined}
             id="Desserts"
             onClick={handleClick}
           >
-            <a href="#">Desserts</a>
+            <a>Desserts</a>
           </li>
           <li
-            className={tag === "Soups" && "selected-li"}
+            className={tag === "Soups" ? 'selected-li': undefined}
             id="Soups"
             onClick={handleClick}
           >
-            <a href="#">Soups</a>
+            <a>Soups</a>
           </li>
           <li
-            className={tag === "Beverages" && "selected-li"}
+            className={tag === "Beverages" ? 'selected-li': undefined}
             id="Beverages"
             onClick={handleClick}
           >
-            <a href="#">Beverages</a>
+            <a>Beverages</a>
           </li>
         </ul>
       </nav>

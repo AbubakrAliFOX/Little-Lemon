@@ -1,3 +1,4 @@
+import "./style.css";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import Order from "./Order";
@@ -14,8 +15,8 @@ export default function Profile() {
   const [orders, setOrders] = useState([]);
   const [reservations, setReservations] = useState([]);
 
-  const {auth} = useAuth();
-  
+  const { auth } = useAuth();
+
   useEffect(() => {
     axios
       .get("http://localhost:3000/user/order", {
@@ -24,8 +25,8 @@ export default function Profile() {
         },
       })
       .then((response) => {
-        setOrders(prev => response.data.prevOrders);
-        setReservations(prev => response.data.prevReservations);
+        setOrders((prev) => response.data.prevOrders);
+        setReservations((prev) => response.data.prevReservations);
       })
       .catch((err) => console.log(err));
   }, []);
@@ -63,11 +64,27 @@ export default function Profile() {
       </section>
       <h2>My Orders</h2>
       <section className="orders">
-        {orders.map(el => <Order totalPrice={el.totalPrice} orderDate={el.orderDate} orderTime={el.orderTime} items={el.items} />)}       
+        {orders ? (
+          orders.map((el, idx) => (
+            <Order
+              key={idx + 1000}
+              totalPrice={el.totalPrice}
+              orderDate={el.orderDate}
+              orderTime={el.orderTime}
+              items={el.items}
+            />
+          ))
+        ) : (
+          <h2 className="no-orders">No order yet!</h2>
+        )}
       </section>
       <h2>My Reservations</h2>
       <section className="orders">
-        <Reservations reservations={reservations}/>
+        {reservations ? (
+          <Reservations reservations={reservations} />
+        ) : (
+          <h2 className="no-orders">No reservations yet!</h2>
+        )}
       </section>
     </article>
   );

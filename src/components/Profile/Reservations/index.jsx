@@ -14,7 +14,7 @@ export default function Reservations({reservations}) {
         </tr>
       </thead>
       <tbody>
-      {reservations.map((el, idx) => <ReservationRow data={el.reservation} idx={idx} />)}
+      {reservations.map((el, idx) => <ReservationRow key={idx + 10} data={el.reservation} idx={idx} />)}
       </tbody>
     </table>
   );

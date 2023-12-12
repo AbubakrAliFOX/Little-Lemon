@@ -32,7 +32,7 @@ export default function Order({ totalPrice, orderDate, orderTime, items }) {
         </div>
       </div>
       <div className="order-body">
-        {items.map(el => <Item name={el.name} qty={el.qty} price={el.price} />)}
+        {items.map((el, idx) => <Item key={idx + 100} name={el.name} qty={el.qty} price={el.price} />)}
       </div>
     </div>
   );

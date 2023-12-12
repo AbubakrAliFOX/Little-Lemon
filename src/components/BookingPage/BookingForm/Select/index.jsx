@@ -76,7 +76,7 @@ export default function Select({
         
         <span
           className={`select-main-text ${
-            formData[`${type}`] && `change-text-color`
+            formData[`${type}`] ? `change-text-color` : undefined
           }`}
         >
           {/* {displayName !== 'Time' && displayName} */}
@@ -85,14 +85,14 @@ export default function Select({
         <svg
           width="33"
           height="21"
-          className={open && `rotate-svg`}
+          className={open? `rotate-svg` : undefined }
           viewBox="0 0 33 21"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
         >
           <path
-            fill-rule="evenodd"
-            clip-rule="evenodd"
+            fillRule="evenodd"
+            clipRule="evenodd"
             d="M31.2065 0.839949C30.1012 -0.266718 28.3065 -0.266718 27.2012 0.839949L16.0211 13.1733L4.83983 0.839949C3.7345 -0.266718 1.9398 -0.266718 0.834463 0.839949C-0.270871 1.94662 -0.270871 3.74663 0.834463 4.8533L13.8411 19.2C14.4398 19.8 15.2385 20.0666 16.0211 20.0133C16.8038 20.0666 17.6012 19.8 18.1999 19.2L31.2065 4.8533C32.3119 3.74663 32.3119 1.94662 31.2065 0.839949Z"
             fill={formData[[`${type}`]] ? "#edefee" : "#495E57"}
           />
@@ -108,7 +108,7 @@ export default function Select({
             <div className="month-container">{getDate().monthName}</div>
             <div className="day-container">
               {options.map((day) => (
-                <div id={day} onClick={handleOptionClick} className="day">
+                <div id={day} key={day} onClick={handleOptionClick} className="day">
                   {day}
                 </div>
               ))}
@@ -117,7 +117,7 @@ export default function Select({
         )}
 
         {type !== "Date" && options.map((el) => (
-            <div onClick={handleOptionClick} className={`option ${type}`} id={el}>
+            <div key={el} onClick={handleOptionClick} className={`option ${type}`} id={el}>
             {el}
           </div>
         ))}
