@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import Order from "./Order";
-import { ToastContainer, toast } from "react-toastify";
+import { toast } from "react-toastify";
 import { useLocation } from "react-router-dom";
+import Reservations from "./Reservations";
 
 export default function Profile() {
   const userData = JSON.parse(localStorage.getItem("user"));
@@ -10,6 +11,7 @@ export default function Profile() {
 
   // getting order
   const [orders, setOrders] = useState([]);
+  const [reservations, setReservations] = useState([]);
   useEffect(() => {
     axios
       .get("http://localhost:3000/user/order", {
@@ -17,7 +19,10 @@ export default function Profile() {
           Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NTc0ODNjYWM2YWY3N2QyNmJmMDgwM2UiLCJpYXQiOjE3MDIyNzYwNTYsImV4cCI6MTcwMjQ0ODg1Nn0.yNkNSpL1uC5_YqMTdhuViRzp0_CtbLSJh0DvazQkMcI`,
         },
       })
-      .then((response) => setOrders(prev => response.data))
+      .then((response) => {
+        setOrders(prev => response.data.prevOrders);
+        setReservations(prev => response.data.prevReservations);
+      })
       .catch((err) => console.log(err));
   }, []);
 
@@ -57,6 +62,10 @@ export default function Profile() {
       <h2>My Orders</h2>
       <section className="orders">
         {orders.map(el => <Order totalPrice={el.totalPrice} orderDate={el.orderDate} orderTime={el.orderTime} items={el.items} />)}       
+      </section>
+      <h2>My Reservations</h2>
+      <section className="orders">
+        <Reservations reservations={reservations}/>
       </section>
     </article>
   );

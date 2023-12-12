@@ -246,6 +246,10 @@ body {
     left: 0;
     transform: translatex(0);
   }
+
+  table {
+    font-size: 20px;
+  }
 }
 
 @media (width <= 768px) and (width >= 480px) {
@@ -267,6 +271,10 @@ body {
 
   .item-amount, .item-name {
     font-size: 16px;
+  }
+
+  table {
+    font-size: 14px;
   }
 }
 
