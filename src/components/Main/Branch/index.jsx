@@ -22,13 +22,13 @@ export default function Branch() {
         <section className="img-container">
           <img
             className="branch-img"
-            src="/restaurant1.webp"
-            alt="Main Photo"
+            src="https://res.cloudinary.com/dewpck9nt/image/upload/v1702359962/LittleLemon/vnf0csuycqvunhby0quj.webp"
+            alt="Restaurant Branch Photo"
           />
           <img
             className="branch-img"
-            src="/restaurant2.webp"
-            alt="Main Photo"
+            src="https://res.cloudinary.com/dewpck9nt/image/upload/v1702359962/LittleLemon/c60g7su2kxqpgqbq3lkg.webp"
+            alt="Restaurant Branch Photo"
           />
         </section>
       </Suspense>

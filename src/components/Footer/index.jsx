@@ -8,7 +8,7 @@ export default function Footer() {
     <footer className="page-padding">
       <Suspense fallback={<ElementLoader />}>
         <section className="footer-logo">
-          <img src="/footer-logo.webp" alt="Footer Logo" />
+          <img src="https://res.cloudinary.com/dewpck9nt/image/upload/v1702490438/LittleLemon/ntedy0ayqqi7ya4axgon.webp" alt="Footer Logo" />
         </section>
         <section>
           <h5>Navigation links</h5>
