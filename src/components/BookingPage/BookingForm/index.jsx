@@ -6,6 +6,8 @@ import { toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 import useAuth from "../../hooks/useAuth";
 import { useNavigate } from "react-router-dom";
+const url = import.meta.env.VITE_MAIN_URL;
+
 
 export default function BookingForm() {
   const [availableTimes, setAvailableTimes] = useState([]);
@@ -33,7 +35,7 @@ export default function BookingForm() {
   const handleSubmit = (e) => {
     e.preventDefault();
     try {
-      axios.post("http://localhost:3000/user/reservations", formData, {
+      axios.post(`${url}user/reservations`, formData, {
         headers: {
           Authorization: `Bearer ${auth.token}`,
         },

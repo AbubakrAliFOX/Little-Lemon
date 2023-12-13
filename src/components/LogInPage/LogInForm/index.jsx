@@ -8,6 +8,9 @@ import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useLocation, useNavigate } from "react-router-dom";
 
+// require('dotenv').config();
+const url = import.meta.env.VITE_MAIN_URL;
+
 export default function LogInForm() {
   const { setAuth } = useAuth();
   // For redirecting after successful sign up
@@ -58,7 +61,7 @@ export default function LogInForm() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post("http://localhost:3000/user/login", {
+      const response = await axios.post(`${url}user/login`, {
         ...formik.values,
       });
       localStorage.clear();

@@ -9,6 +9,7 @@ const Reservations = lazy(() => import("./Reservations"));
 import { toast } from "react-toastify";
 import { useLocation } from "react-router-dom";
 import useAuth from "../hooks/useAuth";
+const url = import.meta.env.VITE_MAIN_URL;
 
 export default function Profile() {
   const userData = JSON.parse(localStorage.getItem("user"));
@@ -22,7 +23,7 @@ export default function Profile() {
 
   useEffect(() => {
     axios
-      .get("http://localhost:3000/user/order", {
+      .get(`${url}user/order`, {
         headers: {
           Authorization: `Bearer ${auth.token}`,
         },

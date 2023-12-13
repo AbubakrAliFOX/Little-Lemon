@@ -8,6 +8,8 @@ import BasketItem from "../BasketItem";
 import useAuth from "../hooks/useAuth";
 import useBasket from "../hooks/useBasket";
 import { toast } from "react-toastify";
+const url = import.meta.env.VITE_MAIN_URL;
+
 
 export default function Header() {
   // localStorage.setItem('basket', JSON.stringify({Basket: '123'}));
@@ -63,7 +65,7 @@ export default function Header() {
     e.preventDefault();
     try {
       const response = await axios.post(
-        "http://localhost:3000/user/order",
+        `${url}user/order`,
         basket,
         {
           headers: {

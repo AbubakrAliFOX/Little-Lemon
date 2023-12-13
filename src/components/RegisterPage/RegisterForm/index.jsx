@@ -7,6 +7,7 @@ import axios from "axios";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useLocation, useNavigate  } from "react-router-dom";
+const url = import.meta.env.VITE_MAIN_URL;
 
 export default function RegisterForm() {
   const { setAuth } = useAuth();
@@ -67,7 +68,7 @@ export default function RegisterForm() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post("http://localhost:3000/user/register", {
+      const response = await axios.post(`${url}user/register`, {
         ...formik.values,
       });
       localStorage.clear();
