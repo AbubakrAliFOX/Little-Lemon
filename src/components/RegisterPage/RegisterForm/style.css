@@ -1,0 +1,78 @@
+.register-box .form-field {
+    margin: 20px auto;
+    width: var(--form-element-width);
+  }
+  
+  .submit-form-button {
+    display: block;
+    text-align: center;
+    height: 60px;
+    width: 318px;
+    background-color: var(--color3);
+    color: var(--color1);
+    border: 2px var(--color1) solid;
+    border-radius: 8px;
+    cursor: pointer;
+    margin: 35px auto;
+    font-size: 28px;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    transition: 0.3s all;
+  }
+  
+  .submit-form-button:hover {
+    box-shadow: 0px 6px 4px 0px rgba(0, 0, 0, 0.25);
+    background-color: var(--color1);
+    color: var(--color3);
+  }
+  
+  .submit-form-button:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+    background-color: var(--color3);
+    color: var(--color1);
+    border: 2px var(--color1) solid;
+  }
+  
+  .submit-form-button {
+    width: calc(var(--form-element-width) - 4%);
+  }
+  
+  .form-field label {
+    margin-bottom: 6px;
+    display: block;
+    font-size: 22px;
+    font-weight: bold;
+    margin-left: 10px;
+    width: 90%;
+  }
+  
+  .form-field input {
+    width: 90%;
+    height: 40px;
+    border-radius: 8px;
+    border: 3px solid var(--color1);
+    font-size: 20px;
+    padding-left: 10px;
+    transition: 0.3s all ease-in-out;
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+  }
+  
+  .form-field input:hover,
+  .form-field input:focus {
+    box-shadow: 5px 5px 0px 0px rgba(49, 104, 12, 0.2);
+  }
+  
+  .form-field .error-message {
+    display: block;
+    color: red;
+    font-size: 18px;
+    margin-top: 3px;
+    margin-left: 10px;
+  }
+  
+  .red-border {
+    border: 3px solid rgb(196, 10, 10) !important;
+  }
+  

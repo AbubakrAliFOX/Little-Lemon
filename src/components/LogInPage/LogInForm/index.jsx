@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import './style.css';
 import useAuth from "../../hooks/useAuth";
 import * as Yup from "yup";
 import { useFormik } from "formik";
@@ -14,15 +15,16 @@ export default function LogInForm() {
   const navigate = useNavigate();
   useEffect(() => {
     if (redirect) {
-      navigate("/profile", { state: { showToast: true } });
+      navigate("/profile", { state: { showToast: true, toastMsg: "Successfully Loggen In" } });
     }
   }, [redirect]);
 
   // For showing toaster when redirected from menu
 
   const location = useLocation();
+  console.log(location);
   useEffect(() => {
-    if (location?.state?.showToast) {
+    if (location?.state) {
       toast.error(location.state.toastMsg, {
         position: "top-center",
         autoClose: 5000,
@@ -129,7 +131,7 @@ export default function LogInForm() {
           </div>
         </section>
         <button
-          className="submit-button submit-form-button"
+          className="submit-form-button"
           type="submit"
           disabled={!(formik.isValid && formik.dirty)}
         >

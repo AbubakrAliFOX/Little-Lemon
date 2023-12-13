@@ -1,3 +1,4 @@
+import './style.css';
 import { useEffect, useState } from "react";
 import useAuth from "../../hooks/useAuth";
 import * as Yup from "yup";
@@ -14,7 +15,7 @@ export default function RegisterForm() {
   const navigate = useNavigate();
   useEffect(() => {
     if(redirect) {
-      navigate("/profile", { state: { showToast: true } });
+      navigate("/profile", { state: { showToast: true, toastMsg: "Successfully Signed Up" } });
     }
   }, [redirect])
 
@@ -22,7 +23,7 @@ export default function RegisterForm() {
 
   const location = useLocation();
   useEffect(() =>{
-    if(location?.state?.showToast) {
+    if(location?.state) {
       toast.error(location.state.toastMsg, {
         position: "top-center",
         autoClose: 5000,
@@ -188,7 +189,7 @@ export default function RegisterForm() {
           </div>
         </section>
         <button
-          className="submit-button submit-form-button"
+          className="submit-form-button"
           type="submit"
           disabled={!(formik.isValid && formik.dirty)}
         >

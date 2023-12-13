@@ -7,6 +7,7 @@ export default function Testimonials() {
     <Suspense fallback={<ElementLoader />}>
       <article className="testimonials-section page-padding">
         <h3 className="testimonials-title">Testimonials</h3>
+        <h3 className="testimonials-title">Comming soon ...</h3>
       </article>
     </Suspense>
   );
