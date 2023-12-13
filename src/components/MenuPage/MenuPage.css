@@ -24,9 +24,6 @@
     padding: 0;
   }
   
-  .page-padding {
-    padding: var(--pageSpacing) var(--pagePadding);
-  }
 
   
   @media (width >= 1461px) {
@@ -57,17 +54,9 @@
     .menu-page ul {
       overflow-x: scroll;
     }
-  
-    .menu-page .card {
-      width: 45%;
-    }
-  
+
     .menu-display {
       justify-content: center;
-    }
-  
-    .menu-page .dish-image {
-      max-height: 240px;
     }
   }
   
@@ -81,33 +70,5 @@
   @media (width <= 980px) and (width >= 768px) {
     .page-padding {
       padding: 35px 13px;
-    }
-
-    .card {
-      width: 40%;
-      margin: 0 auto 20px auto !important;
-    }
-  }
-  
-  @media (width <= 768px) {
-    .menu-page .card {
-      width: 85%;
-    }
-  
-    .menu-page .dish-image {
-      max-height: 100%;
-      height: auto;
-    }
-  }
-  
-  @media (width <= 768px) and (width >= 480px) {
-    .card {
-      width: 70%;
-    }
-  }
-  
-  @media (width <= 768px) and (width >= 480px) {
-    .card {
-      width: 70%;
     }
   }

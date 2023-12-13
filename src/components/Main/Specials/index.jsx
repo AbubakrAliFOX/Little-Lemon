@@ -12,7 +12,7 @@ export default function Specials() {
           <h3 className="specials-title">Our specials this week!</h3>
           <Button linkPath={"/menu"} content="Order Online" />
         </section>
-        <section className="cards-display">
+        <section className="home-page-cards-display">
           <Card
             name="Greek Salad"
             price="$8.99"

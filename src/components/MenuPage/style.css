@@ -39,33 +39,9 @@
   width: 100%;
 }
 
-.menu-page .dish-price {
-  font-size: 20px;
-}
-
 .menu-display {
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-start;
 }
 
-.menu-page .card {
-  width: 30%;
-  margin: 15px;
-}
-
-.menu-page .dish-name {
-    /* overflow: auto; */
-    /* text-overflow: none; */
-    max-width: 100%;
-    overflow-wrap: break-word;
-    word-break: break-all;
-}
-
-.menu-page .dish-image{
-    /* width: 30%; */
-    object-fit: cover;
-    max-height: 160px;
-    /* object-position: center 0; */
-
-}

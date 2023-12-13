@@ -1,5 +1,5 @@
-.card {
-  margin: 0;
+.menu-page .card {
+  margin: 15px;
   padding-bottom: 18px;
   width: 30%;
   background-color: var(--color3);
@@ -7,26 +7,66 @@
   overflow: hidden;
 }
 
+
 .menu-page .card:nth-of-type(1), .menu-page .card:nth-of-type(2), .menu-page .card:nth-of-type(3) {
   margin: 15px;
 }
 
 
-.card-body {
+.menu-page .card .card-body {
   padding: 0 26px;
 }
 
-.dish-name {
-  overflow: hidden;
+.menu-page .dish-name {
+  max-width: 100%;
+  overflow-wrap: break-word;
+  word-break: break-all;
   text-overflow: ellipsis;
+  overflow: hidden;
   white-space: nowrap;
   font-size: 24px;
   font-weight: 500;
   margin: 0;
 }
 
-.dish-price {
+
+.menu-page .dish-price {
   color: var(--color4);
-  font-size: 18px;
+  font-size: 20px;
   font-weight: 700;
+}
+
+
+.menu-page .dish-image{
+    object-fit: cover;
+    max-height: 160px;
+
+}
+  
+@media (width <= 1080px) {
+  .menu-page .card {
+    width: 45%;
+  }
+  .menu-page .dish-image {
+    max-height: 240px;
+  }
+}
+
+@media (width <= 980px) and (width >= 768px) {
+
+  .menu-page .card {
+    width: 40%;
+    margin: 0 auto 20px auto !important;
+  }
+}
+
+@media (width <= 768px) {
+  .menu-page .card {
+    width: 85%;
+  }
+
+  .menu-page .dish-image {
+    max-height: 100%;
+    height: auto;
+  }
 }
