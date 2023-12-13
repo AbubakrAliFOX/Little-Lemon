@@ -25,7 +25,6 @@ export default function LogInForm() {
   // For showing toaster when redirected from menu
 
   const location = useLocation();
-  console.log(location);
   useEffect(() => {
     if (location?.state) {
       toast.error(location.state.toastMsg, {
