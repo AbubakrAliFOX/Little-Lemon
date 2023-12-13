@@ -1,0 +1,28 @@
+
+.specials-main-display {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .specials-title {
+    color: #000;
+    font-size: 40px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    display: inline-block;
+    margin: 0;
+  }
+  
+  @media (width <= 768px) {
+    .specials-main-display {
+      display: block;
+    }
+  
+    .specials-title {
+      font-size: 30px;
+      margin-bottom: 15px;
+      display: block;
+    }
+  }

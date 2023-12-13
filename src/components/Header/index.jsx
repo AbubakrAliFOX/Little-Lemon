@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import "./style.css";
+import './Header.css';
 import { Link, useNavigate } from "react-router-dom";
 import Basket from "../Basket";
 import BasketItem from "../BasketItem";

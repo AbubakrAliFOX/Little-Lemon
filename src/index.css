@@ -178,17 +178,6 @@ body {
     margin-top: 25px;
   }
 
-  /* specials */
-  .specials-main-display {
-    display: block;
-  }
-
-  .specials-title {
-    font-size: 30px;
-    margin-bottom: 15px;
-    display: block;
-  }
-
   .cards-display {
     /* display: block; */
     margin-top: 15px;
@@ -197,12 +186,6 @@ body {
   .card {
     width: 100%;
     margin: 0 auto 20px auto !important;
-  }
-
-  /* Branch */
-
-  .branch-section {
-    display: block;
   }
 
   /* footer */

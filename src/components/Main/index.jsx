@@ -1,11 +1,13 @@
 import "./style.css";
-import { useEffect, lazy } from "react";
-const Hero = lazy(() => import('./Hero'));
-const Specials = lazy(() => import('./Specials'));
-const Testimonials = lazy(() => import('./Testimonials'));
-const Branch = lazy(() => import('./Branch'));
-import {toast} from 'react-toastify'
+import './Main.css';
+import { useEffect, Suspense, lazy } from "react";
+const Hero = lazy(() => import("./Hero"));
+const Specials = lazy(() => import("./Specials"));
+const Testimonials = lazy(() => import("./Testimonials"));
+const Branch = lazy(() => import("./Branch"));
+import { toast } from "react-toastify";
 import { useLocation } from "react-router-dom";
+import { ElementLoader } from "../Loader";
 
 export default function Main() {
   let location = useLocation();
@@ -20,16 +22,18 @@ export default function Main() {
         draggable: true,
         progress: undefined,
         theme: "colored",
-        toastId: 'Some Id'
+        toastId: "Some Id",
       });
     }
   }, []);
   return (
     <>
-      <Hero />
-      <Specials />
-      <Testimonials />
-      <Branch />
+      <Suspense fallback={<ElementLoader />}>
+        <Hero />
+        <Specials />
+        <Testimonials />
+        <Branch />
+      </Suspense>
     </>
   );
 }

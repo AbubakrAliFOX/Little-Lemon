@@ -1,16 +1,29 @@
 .item {
-    display: flex;
-    margin: 15px 0;
-    padding-left: 15px;
-    text-align: center;
-    align-items: center;
+  display: flex;
+  margin: 15px 0;
+  padding-left: 15px;
+  text-align: center;
+  align-items: center;
 }
 
 .item > * {
-   width: 35%;
-   margin: 0 5px;
+  width: 35% !important;
+  margin: 0 5px;
 }
 
-.item-amount, .item-name {
-    font-size: 22px;
+
+.item-amount,
+.item-name {
+  font-size: 22px;
+}
+
+@media (width < 480px) {
+  :root {
+    --form-element-width: 95%;
+  }
+
+  .item-amount,
+  .item-name {
+    font-size: 16px;
+  }
 }

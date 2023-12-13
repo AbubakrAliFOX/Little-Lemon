@@ -1,3 +1,5 @@
+import './style.css';
+
 import { useNavigate } from "react-router-dom";
 import useBasket from '../../hooks/useBasket';
 

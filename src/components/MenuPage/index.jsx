@@ -1,4 +1,5 @@
 import "./style.css";
+import './MenuPage.css';
 // import MenuItem from "./MenuItem";
 import { dishes } from "../../utils/dishedDB";
 import { Suspense, useState, lazy } from "react";

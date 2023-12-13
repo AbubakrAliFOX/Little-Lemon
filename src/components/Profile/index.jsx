@@ -1,10 +1,13 @@
 import "./style.css";
-import { useEffect, useState } from "react";
+import { useEffect, useState, lazy, Suspense } from "react";
+import { ElementLoader } from "../Loader";
 import axios from "axios";
-import Order from "./Order";
+// import Orders from "./Orders";
+// import Reservations from "./Reservations";
+const Orders = lazy(() => import("./Orders"));
+const Reservations = lazy(() => import("./Reservations"));
 import { toast } from "react-toastify";
 import { useLocation } from "react-router-dom";
-import Reservations from "./Reservations";
 import useAuth from "../hooks/useAuth";
 
 export default function Profile() {
@@ -50,8 +53,9 @@ export default function Profile() {
   return (
     <article className="page-padding">
       <h1 className="form-title">Welcome Back, {firstName}.</h1>
-      <h2>Account Details</h2>
+      <hr />
       <section className="account-details">
+        <h2>Account Details</h2>
         <p>
           <b>Name:</b> {userData.name}
         </p>
@@ -62,30 +66,17 @@ export default function Profile() {
           <b>Address:</b> {userData.address}
         </p>
       </section>
+      <hr />
       <h2>My Orders</h2>
-      <section className="orders">
-        {orders ? (
-          orders.map((el, idx) => (
-            <Order
-              key={idx + 1000}
-              totalPrice={el.totalPrice}
-              orderDate={el.orderDate}
-              orderTime={el.orderTime}
-              items={el.items}
-            />
-          ))
-        ) : (
-          <h2 className="no-orders">No order yet!</h2>
-        )}
-      </section>
+      <Suspense fallback={<ElementLoader />}>
+        <Orders orders={orders} />
+      </Suspense>
+      <hr />
+
       <h2>My Reservations</h2>
-      <section className="orders">
-        {reservations ? (
-          <Reservations reservations={reservations} />
-        ) : (
-          <h2 className="no-orders">No reservations yet!</h2>
-        )}
-      </section>
+      <Suspense fallback={<ElementLoader />}>
+        <Reservations reservations={reservations} />
+      </Suspense>
     </article>
   );
 }

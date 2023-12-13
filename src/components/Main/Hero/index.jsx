@@ -1,3 +1,5 @@
+import './Hero.css';
+
 import Button from "../../Button";
 import { Suspense } from "react";
 import { ElementLoader } from "../../Loader";
@@ -5,8 +7,8 @@ import { ElementLoader } from "../../Loader";
 export default function Hero() {
   return (
     <>
+        <Suspense fallback={<ElementLoader />}>
       <article className="hero page-padding">
-        <Suspense fallback={ElementLoader}>
           <section className="content">
             <h1 className="title">Little Lemon</h1>
             <h2 className="subtitle">Chicago</h2>
@@ -23,8 +25,8 @@ export default function Hero() {
               alt="Main Photo"
             />
           </section>
-        </Suspense>
       </article>
+        </Suspense>
     </>
   );
 }

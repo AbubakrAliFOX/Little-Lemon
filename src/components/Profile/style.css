@@ -1,9 +1,18 @@
 .no-orders {
-    text-align: center;
-    border: 2px solid grey;
-    border-radius: 12px;
-    height: 100px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  text-align: center;
+  border: 2px solid grey;
+  border-radius: 12px;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.form-title {
+  font-size: 36px;
+}
+
+.account-details p {
+    font-size: 20px;
+    word-break: break-all;
 }

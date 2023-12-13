@@ -1,0 +1,14 @@
+
+.testimonials-section {
+    background-color: var(--color1);
+  }
+
+  
+.testimonials-title {
+  color: #fff;
+  text-align: center;
+  font-size: 40px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}

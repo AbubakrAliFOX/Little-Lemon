@@ -1,10 +1,11 @@
+import './Branch.css';
 import { ElementLoader } from "../../Loader";
 import { Suspense } from "react";
 
 export default function Branch() {
   return (
     <article className="branch-section page-padding">
-      <Suspense fallback={ElementLoader}>
+      <Suspense fallback={<ElementLoader />}>
         <section className="content">
           <h1 className="title">Little Lemon</h1>
           <h2 className="subtitle">Chicago</h2>

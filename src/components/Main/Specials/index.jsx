@@ -1,3 +1,4 @@
+import './Specials.css';
 import Button from "../../Button";
 import Card from "../Card";
 import { Suspense } from "react";
@@ -5,8 +6,8 @@ import { ElementLoader } from "../../Loader";
 
 export default function Specials() {
   return (
+      <Suspense fallback={<ElementLoader />}>
     <article className="page-padding">
-      <Suspense fallback={ElementLoader}>
         <section className="specials-main-display">
           <h3 className="specials-title">Our specials this week!</h3>
           <Button linkPath={"/menu"} content="Order Online" />
@@ -31,7 +32,7 @@ export default function Specials() {
             imgSource="https://res.cloudinary.com/dewpck9nt/image/upload/v1701674770/LittleLemon/lyydbtsucpgr7yvhxesy.webp"
           />
         </section>
-      </Suspense>
     </article>
+      </Suspense>
   );
 }

@@ -1,6 +1,6 @@
 import LogInForm from "./LogInForm";
-import "../RegisterPage/style.css";
 import { Link } from "react-router-dom";
+import './Login.css';
 
 export default function LogInPage() {
   return (

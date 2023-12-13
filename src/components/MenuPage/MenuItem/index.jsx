@@ -2,7 +2,7 @@ import AddToBasket from "../AddToBasket";
 import { Suspense, lazy } from "react";
 import { ImgLoader } from "../../Loader";
 const DishImage = lazy(() => import('./DishImage'));
-// import './style.css';
+import './style.css';
 
 export default function MenuItem({ imgUrl, name, price }) {
   return (

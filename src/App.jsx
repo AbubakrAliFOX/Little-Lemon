@@ -1,4 +1,5 @@
 import "./App.css";
+import "./index.css";
 import { lazy } from "react";
 import { Routes, Route } from "react-router-dom";
 
@@ -39,8 +40,8 @@ function App() {
           <Route path="*" element={<ErrorPage />} />
         </Route>
       </Routes>
-      <ToastContainer />
       <Footer />
+      <ToastContainer />
     </>
   );
 }
