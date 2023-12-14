@@ -1,13 +1,15 @@
-import Select from "./Select";
-import { useState, useEffect } from "react";
 import "./style.css";
+
+import { useState, useEffect } from "react";
 import axios from "axios";
 import { toast } from "react-toastify";
-import 'react-toastify/dist/ReactToastify.css';
-import useAuth from "../../hooks/useAuth";
+import "react-toastify/dist/ReactToastify.css";
 import { useNavigate } from "react-router-dom";
-const url = import.meta.env.VITE_MAIN_URL;
 
+import useAuth from "../../hooks/useAuth";
+import Select from "./Select";
+
+const url = import.meta.env.VITE_MAIN_URL;
 
 export default function BookingForm() {
   const [availableTimes, setAvailableTimes] = useState([]);
@@ -22,54 +24,65 @@ export default function BookingForm() {
   const { auth } = useAuth();
 
   // for redirecting after making reservation
-  const [reservationRedirect, setReservationRedirect] = useState(false);
+  const [reservationRedirect, setReservationRedirect] = useState({
+    forSuccess: false,
+    forAuthFailiure: false,
+  });
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (reservationRedirect) {
-      navigate("/profile");
-      setReservationRedirect((prev) => false)
+    if (reservationRedirect.forSuccess == true) {
+      navigate("/profile", {
+        state: { toastMsg: "Reserved! Your table is set. See you soon" },
+      });
+      setReservationRedirect((prev) => ({ ...prev, forSuccess: false }));
+    }
+
+    if (reservationRedirect.forAuthFailiure == true) {
+      navigate("/login", {
+        state: { error: true, toastMsg: "You must log in first!" },
+      });
+      setReservationRedirect((prev) => ({
+        ...prev,
+        forAuthFailiure: false,
+      }));
     }
   }, [reservationRedirect]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    try {
-      axios.post(`${url}user/reservations`, formData, {
-        headers: {
-          Authorization: `Bearer ${auth.token}`,
-        },
-      });
-      toast.success("Reserved! Your table is set. See you soon", {
-        position: "top-center",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "colored",
-        toastId: "Some Id",
-      });
-      setFormData((prev) => ({
-        Date: "",
-        Time: "",
-        Guests: "",
-        Occasion: "",
+    if (!auth) {
+      setReservationRedirect((prev) => ({
+        ...prev,
+        forAuthFailiure: true,
       }));
-      setReservationRedirect((prev) => true);
-    } catch (error) {
-      toast.error("An error occured", {
-        position: "top-center",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "colored",
-        toastId: "Some Id",
-      });
+    } else {
+      try {
+        axios.post(`${url}user/reservations`, formData, {
+          headers: {
+            Authorization: `Bearer ${auth.token}`,
+          },
+        });
+        setFormData((prev) => ({
+          Date: "",
+          Time: "",
+          Guests: "",
+          Occasion: "",
+        }));
+        setReservationRedirect((prev) => ({ ...prev, forSuccess: true }));
+      } catch (error) {
+        toast.error("An error occured", {
+          position: "top-center",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "colored",
+          toastId: "Some Id",
+        });
+      }
     }
   };
 

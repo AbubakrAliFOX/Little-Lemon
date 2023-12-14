@@ -1,7 +1,7 @@
 import "./style.css";
 
 import { useEffect, useState } from "react";
-import { useFormik, Formik, Form, Field, ErrorMessage } from "formik";
+import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import axios from "axios";
 import { toast } from "react-toastify";
@@ -11,11 +11,11 @@ import { useLocation, useNavigate } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
 import { Loader } from "../../Loader";
 
-// require('dotenv').config();
 const url = import.meta.env.VITE_MAIN_URL;
 
 export default function LogInForm() {
   const { setAuth } = useAuth();
+
   // For redirecting after successful sign up
   const [redirect, setRedirect] = useState(false);
   const navigate = useNavigate();
@@ -27,24 +27,7 @@ export default function LogInForm() {
     }
   }, [redirect]);
 
-  // For showing toaster when redirected from menu
 
-  const location = useLocation();
-  useEffect(() => {
-    if (location?.state) {
-      toast.error(location.state.toastMsg, {
-        position: "top-center",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "colored",
-        toastId: "Location-toast",
-      });
-    }
-  }, []);
 
   const loginSchema = Yup.object({
     email: Yup.string().email("Invalid email").required("Email is required"),
@@ -52,30 +35,15 @@ export default function LogInForm() {
       .min(6, "Password must have at least 6 charachters")
       .required("Password is required"),
   });
-  const formik = useFormik({
-    initialValues: {
-      email: "",
-      password: "",
-    },
-    validationSchema: Yup.object({
-      email: Yup.string().email("Invalid email").required("Email is required"),
-      password: Yup.string()
-        .min(6, "Password must have at least 6 charachters")
-        .required("Password is required"),
-    }),
-    onSubmit: (values, { resetForm, setSubmitting }) => {
-      console.log(values);
-      console.log(setSubmitting);
-    },
-  });
 
-  const handleSubmit = async (values, { setSubmitting}) => {
+  const handleSubmit = async (values, { setSubmitting }) => {
     try {
       const response = await axios.post(`${url}user/login`, {
         ...values,
       });
       localStorage.clear();
       localStorage.setItem("user", JSON.stringify({ ...response.data }));
+
       // For changing login / profile in navbar
       setAuth((prev) => ({ ...response.data }));
       setRedirect((prev) => true);
@@ -114,9 +82,7 @@ export default function LogInForm() {
                 </label>
                 <Field
                   placeholder="example@gmail.com"
-                  className={
-                    errors.email && touched.email && "red-border"
-                  }
+                  className={errors.email && touched.email && "red-border"}
                   name="email"
                   id="email"
                   type="text"
@@ -134,9 +100,7 @@ export default function LogInForm() {
                 <Field
                   placeholder="Your password"
                   className={
-                    errors.password &&
-                    touched.password &&
-                    "red-border"
+                    errors.password && touched.password && "red-border"
                   }
                   name="password"
                   id="password"
@@ -152,9 +116,7 @@ export default function LogInForm() {
             <button
               className="submit-form-button"
               type="submit"
-              disabled={
-                !(isValid && dirty) || isSubmitting
-              }
+              disabled={!(isValid && dirty) || isSubmitting}
             >
               Log In
             </button>

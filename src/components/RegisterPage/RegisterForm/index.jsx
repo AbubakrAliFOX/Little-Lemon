@@ -1,12 +1,12 @@
 import "./style.css";
 
 import { useEffect, useState } from "react";
-import { useFormik, Formik, Form, Field, ErrorMessage } from "formik";
+import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import axios from "axios";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 import useAuth from "../../hooks/useAuth";
 import { Loader } from "../../Loader";
@@ -15,6 +15,7 @@ const url = import.meta.env.VITE_MAIN_URL;
 
 export default function RegisterForm() {
   const { setAuth } = useAuth();
+
   // For redirecting after successful sign up
   const [redirect, setRedirect] = useState(false);
   const navigate = useNavigate();
@@ -25,25 +26,6 @@ export default function RegisterForm() {
       });
     }
   }, [redirect]);
-
-  // For showing toaster when redirected from menu
-
-  const location = useLocation();
-  useEffect(() => {
-    if (location?.state) {
-      toast.error(location.state.toastMsg, {
-        position: "top-center",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "colored",
-        toastId: "Location-toast",
-      });
-    }
-  }, []);
 
   const signupSchema = Yup.object({
     name: Yup.string()
@@ -60,33 +42,6 @@ export default function RegisterForm() {
       .required("Address is required"),
   });
 
-  const formik = useFormik({
-    initialValues: {
-      name: "",
-      password: "",
-      email: "",
-      address: "",
-    },
-    validationSchema: Yup.object({
-      name: Yup.string()
-        .min(2, "Name is too short")
-        .max(50, "Name is too Long!")
-        .required("Name is required"),
-      password: Yup.string()
-        .min(6, "Password must have at least 6 charachters")
-        .required("Password is required"),
-      email: Yup.string().email("Invalid email").required("Email is required"),
-      address: Yup.string()
-        .min(8, "The address is too short")
-        .max(50, "The address is too long")
-        .required("Address is required"),
-    }),
-    onSubmit: (values, { resetForm }) => {
-      submit(values);
-      resetForm();
-    },
-  });
-
   const handleSubmit = async (values, { setSubmitting }) => {
     try {
       const response = await axios.post(`${url}user/register`, {
@@ -94,6 +49,7 @@ export default function RegisterForm() {
       });
       localStorage.clear();
       localStorage.setItem("user", JSON.stringify({ ...response.data }));
+
       // For changing login / profile in navbar
       setAuth((prev) => ({ ...response.data }));
       setRedirect((prev) => true);
