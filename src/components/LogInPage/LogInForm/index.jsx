@@ -1,12 +1,15 @@
+import "./style.css";
+
 import { useEffect, useState } from "react";
-import './style.css';
-import useAuth from "../../hooks/useAuth";
+import { useFormik, Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
-import { useFormik } from "formik";
 import axios from "axios";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useLocation, useNavigate } from "react-router-dom";
+
+import useAuth from "../../hooks/useAuth";
+import { Loader } from "../../Loader";
 
 // require('dotenv').config();
 const url = import.meta.env.VITE_MAIN_URL;
@@ -18,7 +21,9 @@ export default function LogInForm() {
   const navigate = useNavigate();
   useEffect(() => {
     if (redirect) {
-      navigate("/profile", { state: { showToast: true, toastMsg: "Successfully Loggen In" } });
+      navigate("/profile", {
+        state: { showToast: true, toastMsg: "Successfully Loggen In" },
+      });
     }
   }, [redirect]);
 
@@ -40,6 +45,13 @@ export default function LogInForm() {
       });
     }
   }, []);
+
+  const loginSchema = Yup.object({
+    email: Yup.string().email("Invalid email").required("Email is required"),
+    password: Yup.string()
+      .min(6, "Password must have at least 6 charachters")
+      .required("Password is required"),
+  });
   const formik = useFormik({
     initialValues: {
       email: "",
@@ -51,23 +63,19 @@ export default function LogInForm() {
         .min(6, "Password must have at least 6 charachters")
         .required("Password is required"),
     }),
-    onSubmit: (values, { resetForm }) => {
-      submit(values);
-      resetForm();
+    onSubmit: (values, { resetForm, setSubmitting }) => {
+      console.log(values);
+      console.log(setSubmitting);
     },
   });
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
+  const handleSubmit = async (values, { setSubmitting}) => {
     try {
       const response = await axios.post(`${url}user/login`, {
-        ...formik.values,
+        ...values,
       });
       localStorage.clear();
-      localStorage.setItem(
-        "user",
-        JSON.stringify({ ...response.data })
-      );
+      localStorage.setItem("user", JSON.stringify({ ...response.data }));
       // For changing login / profile in navbar
       setAuth((prev) => ({ ...response.data }));
       setRedirect((prev) => true);
@@ -82,64 +90,78 @@ export default function LogInForm() {
         progress: undefined,
         theme: "colored",
       });
+    } finally {
+      setSubmitting(false);
     }
   };
 
   return (
     <>
-      <form onSubmit={handleSubmit} method="post" action="/">
-        <section className="register-form">
-          <div className="form-field">
-            <label className="form-control" htmlFor="email">
-              Email
-            </label>
-            <input
-              placeholder="example@gmail.com"
-              onChange={formik.handleChange}
-              onBlur={formik.handleBlur}
-              className={
-                formik.errors.email && formik.touched.email && "red-border"
+      <Formik
+        initialValues={{
+          email: "",
+          password: "",
+        }}
+        onSubmit={handleSubmit}
+        validationSchema={loginSchema}
+      >
+        {({ isSubmitting, isValid, dirty }) => (
+          <Form>
+            <section className="register-form">
+              <div className="form-field">
+                <label className="form-control" htmlFor="email">
+                  Email
+                </label>
+                <Field
+                  placeholder="example@gmail.com"
+                  className={
+                    formik.errors.email && formik.touched.email && "red-border"
+                  }
+                  name="email"
+                  id="email"
+                  type="text"
+                />{" "}
+                <ErrorMessage
+                  name="email"
+                  component="span"
+                  className="error-message"
+                />
+              </div>
+              <div className="form-field">
+                <label className="form-control" htmlFor="password">
+                  Password
+                </label>
+                <Field
+                  placeholder="Your password"
+                  className={
+                    formik.errors.password &&
+                    formik.touched.password &&
+                    "red-border"
+                  }
+                  name="password"
+                  id="password"
+                  type="password"
+                />{" "}
+                <ErrorMessage
+                  name="password"
+                  component="span"
+                  className="error-message"
+                />
+              </div>
+            </section>
+            <button
+              className="submit-form-button"
+              type="submit"
+              disabled={
+                !(isValid && dirty) || isSubmitting
               }
-              value={formik.values.email}
-              name="email"
-              id="email"
-              type="text"
-            />{" "}
-            {formik.errors.email && formik.touched.email && (
-              <span className="error-message">{formik.errors.email}</span>
-            )}
-          </div>
-          <div className="form-field">
-            <label className="form-control" htmlFor="password">
-              Password
-            </label>
-            <input
-              placeholder="Your password"
-              onChange={formik.handleChange}
-              onBlur={formik.handleBlur}
-              className={
-                formik.errors.password &&
-                formik.touched.password &&
-                "red-border"
-              }
-              value={formik.values.password}
-              name="password"
-              id="password"
-              type="password"
-            />{" "}
-            {formik.errors.password && formik.touched.password && (
-              <span className="error-message">{formik.errors.password}</span>
-            )}
-          </div>
-        </section>
-        <button
-          className="submit-form-button"
-          type="submit"
-          disabled={!(formik.isValid && formik.dirty)}
-        >
-          Log In
-        </button>
-      </form>
+            >
+              Log In
+            </button>
+            {isSubmitting && <Loader />}
+          </Form>
+        )}
+      </Formik>
     </>
   );
 }
