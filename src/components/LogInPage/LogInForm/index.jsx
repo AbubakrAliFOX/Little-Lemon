@@ -105,7 +105,7 @@ export default function LogInForm() {
         onSubmit={handleSubmit}
         validationSchema={loginSchema}
       >
-        {({ isSubmitting, isValid, dirty }) => (
+        {({ isSubmitting, isValid, dirty, errors, touched }) => (
           <Form>
             <section className="register-form">
               <div className="form-field">
@@ -115,7 +115,7 @@ export default function LogInForm() {
                 <Field
                   placeholder="example@gmail.com"
                   className={
-                    formik.errors.email && formik.touched.email && "red-border"
+                    errors.email && touched.email && "red-border"
                   }
                   name="email"
                   id="email"
@@ -134,8 +134,8 @@ export default function LogInForm() {
                 <Field
                   placeholder="Your password"
                   className={
-                    formik.errors.password &&
-                    formik.touched.password &&
+                    errors.password &&
+                    touched.password &&
                     "red-border"
                   }
                   name="password"
