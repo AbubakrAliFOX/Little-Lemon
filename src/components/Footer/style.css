@@ -1,9 +1,10 @@
 footer {
   background-color: var(--color1);
   display: flex;
-  justify-content: space-between;
+  justify-content: start;
   flex-wrap: wrap;
   margin-top: auto;
+  gap: 50px;
 }
 
 footer section {
