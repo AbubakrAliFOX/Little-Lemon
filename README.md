@@ -2,6 +2,9 @@
 
 Welcome to Little Lemon, a delightful full-stack MERN (MongoDB, Express, React, Node.js) application. Experience a seamless blend of user-friendly features, including meal ordering, table reservations, and detailed menu exploration.
 
+### Live Demo
+[Little Lemon Demo](https://little-lemon-5au5.onrender.com/)
+
 ## Technologies Used
 - **Design:**
   - Figma
