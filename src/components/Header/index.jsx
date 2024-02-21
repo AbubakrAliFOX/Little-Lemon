@@ -121,7 +121,7 @@ export default function Header() {
           />
         </svg>
 
-        <img className="logo" src="/Logo.svg" alt="Logo" />
+        <a href="/"><img className="logo" src="/Logo.svg" alt="Logo" /></a>
       </section>
       <nav className={isOpen ? "hidden" : undefined} id="main-page-nav">
         <ul>
