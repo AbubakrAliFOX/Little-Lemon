@@ -9,7 +9,8 @@
   --color4: #ee9972;
   --pagePadding: 200px;
   --pageSpacing: 35px;
-  --form-element-width: 60%;
+  --form-element-width: 50%;
+  --form-children-width: 90%;
 }
 
 #root {

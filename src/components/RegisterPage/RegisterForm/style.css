@@ -1,6 +1,6 @@
 .register-box .form-field {
     margin: 20px auto;
-    width: var(--form-element-width);
+    width: var(--form-children-width);
   }
   
   .submit-form-button {
@@ -34,7 +34,7 @@
   }
   
   .submit-form-button {
-    width: calc(var(--form-element-width) - 4%);
+    width: calc(var(--form-children-width) - 5%);
   }
   
   .form-field label {
@@ -42,7 +42,7 @@
     display: block;
     font-size: 22px;
     font-weight: bold;
-    margin-left: 10px;
+    margin-left: 16px;
     width: 90%;
   }
   
