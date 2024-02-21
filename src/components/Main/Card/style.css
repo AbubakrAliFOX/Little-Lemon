@@ -13,6 +13,8 @@
     background-color: var(--color3);
     border-radius: 16px;
     overflow: hidden;
+    display: flex;
+    flex-direction: column;
   }
   
   .home-page-cards-display .card:nth-of-type(1) {
