@@ -20,7 +20,7 @@ footer section > * {
   width: 60%;
   margin: 0;
   display: flex;
-  gap: 26px;
+  gap: 1rem;
   justify-content: center;
   align-items: center;
 }
@@ -35,7 +35,6 @@ footer li a,
 footer li, h5 {
   color: var(--color3);
   font-size: 20px;
-  word-break: break-all;
   margin: 0;
 }
 
@@ -48,7 +47,6 @@ footer li, h5 {
   justify-content: center;
   align-items: center;
   transition: 0.3s all ease-in-out;
-
 }
 
 .social-media-links svg > *{
@@ -65,16 +63,9 @@ footer li, h5 {
   fill: white;
 }
 
-
-
-
 footer svg,
 footer a img {
-  width: 35px;
-  height: 35px;
+  width: 60%;
+  height: 60%;
 }
 
-
-/* .social-media-links {
-  margin-top: 15px;
-} */

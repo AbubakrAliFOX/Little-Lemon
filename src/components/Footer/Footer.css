@@ -23,7 +23,6 @@ body {
   padding: 0;
 }
 
-
 @media (width >= 1461px) {
   .page-padding {
     padding: 35px 280px;
@@ -56,6 +55,10 @@ body {
   footer h5 {
     font-size: 18px;
   }
+
+  footer .address-phone ul {
+    flex-direction: column;
+  }
 }
 
 @media (width <= 768px) {
@@ -73,5 +76,18 @@ body {
     margin: 25px auto;
     max-width: 100%;
     text-align: center;
+  }
+
+  footer .address-phone ul {
+    flex-direction: column;
+  }
+
+  .social-media-links a {
+    width: 45px;
+    height: 45px;
+  }
+
+  .address-phone li, .rights-reserved li {
+    width: 100%;
   }
 }
