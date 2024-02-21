@@ -36,10 +36,19 @@
     transition: 0.5s all;
   }
 
+ 
   header li {
     background-color: var(--color3);
-    padding: 8px 0;
+    padding: 8px 16px;
     margin: 0;
+  }
+
+  header li:last-child {
+    border-bottom-left-radius: 25px;
+  }
+  
+  header li:first-child {
+    border-top-right-radius: 25px;
   }
 
   .hidden {
