@@ -12,18 +12,18 @@ import ErrorPage from "./components/ErrorPage";
 import Layout from "./components/Layout";
 import { RequireAuth, NotRequireAuth } from "./components/Authorization";
 
-// import LogInPage from './components/LogInPage';
-// import RegisterPage from "./components/RegisterPage";
-// import BookingPage from "./components/BookingPage";
-// import MenuPage from "./components/MenuPage";
-// import Profile from './components/Profile';
-// import Footer from './components/Footer';
-const LogInPage = lazy(() => import("./components/LogInPage"));
-const RegisterPage = lazy(() => import("./components/RegisterPage"));
-const BookingPage = lazy(() => import("./components/BookingPage"));
-const MenuPage = lazy(() => import("./components/MenuPage"));
-const Profile = lazy(() => import("./components/Profile"));
-const Footer = lazy(() => import("./components/Footer"));
+import LogInPage from './components/LogInPage';
+import RegisterPage from "./components/RegisterPage";
+import BookingPage from "./components/BookingPage";
+import MenuPage from "./components/MenuPage";
+import Profile from './components/Profile';
+import Footer from './components/Footer';
+// const LogInPage = lazy(() => import("./components/LogInPage"));
+// const RegisterPage = lazy(() => import("./components/RegisterPage"));
+// const BookingPage = lazy(() => import("./components/BookingPage"));
+// const MenuPage = lazy(() => import("./components/MenuPage"));
+// const Profile = lazy(() => import("./components/Profile"));
+// const Footer = lazy(() => import("./components/Footer"));
 
 const Main = lazy(() => import("./components/Main"));
 
