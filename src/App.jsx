@@ -17,6 +17,7 @@ import { RequireAuth, NotRequireAuth } from "./components/Authorization";
 // import BookingPage from "./components/BookingPage";
 // import MenuPage from "./components/MenuPage";
 // import Profile from './components/Profile';
+// import Footer from './components/Footer';
 const LogInPage = lazy(() => import("./components/LogInPage"));
 const RegisterPage = lazy(() => import("./components/RegisterPage"));
 const BookingPage = lazy(() => import("./components/BookingPage"));
