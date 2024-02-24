@@ -33,25 +33,25 @@
   justify-content: stretch;
 }
 
-/* .content,
+.content,
 .img-container {
   width: 50%;
-} */
+}
 
 .content {
   padding-right: 20px;
 }
 /* 
 .main-img {
-  aspect-ratio: 450 / 300;
   width: 450px;
-  border-radius: 8px;
-
+  
 } */
 
 .main-img {
+  aspect-ratio: auto;
   width: 100%;
   height: auto;
+  border-radius: 8px;
 }
 
 @media (width <= 768px) {
