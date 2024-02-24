@@ -6,13 +6,13 @@ import { ElementLoader } from "../../Loader";
 
 export default function Specials() {
   return (
-      <Suspense fallback={<ElementLoader />}>
     <article className="page-padding">
         <section className="specials-main-display">
           <h3 className="specials-title">Our specials this week!</h3>
           <Button linkPath={"/menu"} content="Order Online" />
         </section>
         <section className="home-page-cards-display">
+      <Suspense fallback={<ElementLoader />}>
           <Card
             name="Greek Salad"
             price="$8.99"
@@ -31,8 +31,8 @@ export default function Specials() {
             description="A delectable Middle Eastern dessert delight. Layers of thin noodle-like pastry soaked in sweet syrup, filled with rich cheese or crunchy nuts."
             imgSource="https://res.cloudinary.com/dewpck9nt/image/upload/v1701674770/LittleLemon/lyydbtsucpgr7yvhxesy.webp"
           />
+      </Suspense>
         </section>
     </article>
-      </Suspense>
   );
 }

@@ -1,5 +1,5 @@
 import "./style.css";
-import './Main.css';
+import "./Main.css";
 import { useEffect, Suspense, lazy } from "react";
 const Hero = lazy(() => import("./Hero"));
 const Specials = lazy(() => import("./Specials"));
@@ -28,8 +28,8 @@ export default function Main() {
   }, []);
   return (
     <>
+      <Hero />
       <Suspense fallback={<ElementLoader />}>
-        <Hero />
         <Specials />
         <Testimonials />
         <Branch />
