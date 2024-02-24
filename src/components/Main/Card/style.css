@@ -1,88 +1,85 @@
-
 .home-page-cards-display {
-    margin-top: 48px;
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-  }
-  
+  margin-top: 48px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.home-page-cards-display .card {
+  margin: 0;
+  padding-bottom: 18px;
+  width: 30%;
+  background-color: var(--color3);
+  border-radius: 16px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid black;
+}
+
+.home-page-cards-display .card:nth-of-type(1) {
+  margin-right: 18px;
+}
+
+.home-page-cards-display .card:nth-of-type(2) {
+  margin-left: 18px;
+  margin-right: 18px;
+}
+
+.home-page-cards-display .card:nth-of-type(3) {
+  margin-left: 18px;
+}
+
+.home-page-cards-display .card-body {
+  padding: 0 26px;
+}
+
+.dish-image {
+  width: 100%;
+  object-fit: cover;
+  min-height: 200px;
+  max-height: 240px;
+}
+
+.dish-name {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 24px;
+  font-weight: 500;
+  margin: 0;
+}
+
+.dish-price {
+  color: var(--color4);
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.order-link {
+  text-decoration: none;
+  color: black;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.order-link span {
+  margin-right: 8px;
+}
+
+@media (width <= 768px) and (width >= 480px) {
   .home-page-cards-display .card {
-    margin: 0;
-    padding-bottom: 18px;
-    width: 30%;
-    background-color: var(--color3);
-    border-radius: 16px;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
+    width: 70%;
   }
-  
-  .home-page-cards-display .card:nth-of-type(1) {
-    margin-right: 18px;
+}
+
+@media (width <= 768px) {
+  .home-page-cards-display {
+    margin-top: 35px;
   }
-  
-  .home-page-cards-display .card:nth-of-type(2) {
-    margin-left: 18px;
-    margin-right: 18px;
-  }
-  
-  .home-page-cards-display .card:nth-of-type(3) {
-    margin-left: 18px;
-  }
-  
-  .home-page-cards-display .card-body {
-    padding: 0 26px;
-  }
-  
-  .dish-image {
+
+  .home-page-cards-display .card {
     width: 100%;
-    object-fit: cover;
-    min-height: 200px;
-    max-height: 240px;
+    margin: 0 auto 20px auto !important;
   }
-  
-  .dish-name {
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    font-size: 24px;
-    font-weight: 500;
-    margin: 0;
-  }
-  
-  .dish-price {
-    color: var(--color4);
-    font-size: 18px;
-    font-weight: 700;
-  }
-  
-  .order-link {
-    text-decoration: none;
-    color: black;
-    font-size: 16px;
-    font-weight: 700;
-  }
-  
-  .order-link span {
-    margin-right: 8px;
-  }
-  
-
-  @media (width <= 768px) and (width >= 480px) {
-    .home-page-cards-display .card {
-      width: 70%;
-    }
-  }
-
-
-  @media (width <= 768px) {
-    .home-page-cards-display {
-      margin-top: 35px;
-    }
-  
-    .home-page-cards-display .card {
-      width: 100%;
-      margin: 0 auto 20px auto !important;
-    }
-
-  }
+}

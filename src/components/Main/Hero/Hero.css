@@ -41,20 +41,18 @@
 .content {
   padding-right: 20px;
 }
-
+/* 
 .main-img {
   aspect-ratio: 450 / 300;
   width: 450px;
   border-radius: 8px;
 
-}
+} */
 
-
-
-/* .main-img {
+.main-img {
   width: 100%;
   height: auto;
-} */
+}
 
 @media (width <= 768px) {
   .hero {
@@ -73,4 +71,11 @@
   .img-container {
     margin-top: 25px;
   }
+}
+
+@media (width <= 600px) {
+  /* .main-img {
+    width: 300px;
+  
+  } */
 }
