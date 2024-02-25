@@ -1,14 +1,14 @@
 import "./style.css";
-import './MenuPage.css';
+import "./MenuPage.css";
 // import MenuItem from "./MenuItem";
 import { dishes } from "../../utils/dishedDB";
 import { Suspense, useState, lazy } from "react";
 import { ElementLoader } from "../Loader";
-const MenuItem = lazy(() => import('./MenuItem'));
+const MenuItem = lazy(() => import("./MenuItem"));
 
 export default function MenuPage() {
-  //   const displayedDishes = dishes;
   const [tag, setTag] = useState("All");
+  
   const handleClick = (e) => {
     if (e.target.localName === "li") {
       setTag((prevTag) => (prevTag = e.target.id));
@@ -16,6 +16,8 @@ export default function MenuPage() {
       setTag((prevTag) => (prevTag = e.target.parentElement.id));
     }
   };
+
+  const filteredDishes = tag === "All" ? dishes : dishes.filter((el) => el.tag === tag);
 
   return (
     <article className="page-padding menu-page">
@@ -74,28 +76,16 @@ export default function MenuPage() {
       </nav>
 
       <section className="menu-display">
-      <Suspense fallback={<ElementLoader />}>
-
-        {tag === "All" &&
-          dishes.map((dish) => (
-              <MenuItem
-                key={dish.name}
-                imgUrl={dish.imageUrl}
-                name={dish.name}
-                price={dish.price}
-              />
+        <Suspense fallback={<ElementLoader />}>
+          {filteredDishes.map((dish) => (
+            <MenuItem
+              key={dish.name}
+              imgUrl={dish.imageUrl}
+              name={dish.name}
+              price={dish.price}
+            />
           ))}
-        {dishes
-          .filter((el) => el.tag === tag)
-          .map((dish, idx) => (
-              <MenuItem
-                key={idx}
-                imgUrl={dish.imageUrl}
-                name={dish.name}
-                price={dish.price}
-              />
-          ))}
-          </Suspense>
+        </Suspense>
       </section>
     </article>
   );
